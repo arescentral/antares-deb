@@ -1,4 +1,11 @@
-antares (0.8.2~rc1-1) unstable; urgency=low
+antares (0.8.2-1) xenial; urgency=medium
+
+  * Keep scenarios in $PREFIX/share (fixes antares#184).
+  * Preserve preferences between runs (fixes antares#185).
+
+ -- Chris Pickel <sfiera@sfzmail.com>  Wed, 08 Nov 2017 22:39:56 +0100
+
+antares (0.8.2~rc1-1) xenial; urgency=low
 
   * Initial release (closes antares#173)
 
