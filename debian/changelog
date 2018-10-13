@@ -1,3 +1,9 @@
+antares (0.8.3-1) xenial; urgency=medium
+
+  * Don’t crash when scroll text lacks background (fixes antares#200).
+
+ -- Chris Pickel <sfiera@sfzmail.com>  Wed, 13 Feb 2018 20:00:00 +0100
+
 antares (0.8.2-1) xenial; urgency=medium
 
   * Keep scenarios in $PREFIX/share (fixes antares#184).
