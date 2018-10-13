@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+export DH_VERBOSE=1
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	build/lib/scripts/download-gn.py
+	./configure --prefix=/usr
+
+override_dh_auto_build:
+	ninja -C out/cur
+
+override_dh_auto_install:
+	make DESTDIR=debian/tmp install-bin install-data
+
+override_dh_auto_test:
+	# Test data not in main distribution

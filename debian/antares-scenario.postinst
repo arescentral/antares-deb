@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+SHARE=/usr/share/games/antares
+
+/usr/games/antares-install-data \
+    --source=$SHARE/downloads --dest=$SHARE/scenarios

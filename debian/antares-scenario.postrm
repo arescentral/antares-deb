@@ -1,0 +1,20 @@
+#!/bin/sh
+
+set -e
+
+DOWNLOADS=/usr/share/games/antares/downloads
+SCENARIOS=/usr/share/games/antares/scenarios
+
+case "$1" in
+    purge|remove)
+        if [ -d "$DOWNLOADS" ]; then
+            echo rm -rf "$DOWNLOADS"
+            rm -rf "$DOWNLOADS"
+        fi
+        if [ -d "$SCENARIOS" ]; then
+            echo rm -rf "$SCENARIOS"
+            rm -rf "$SCENARIOS"
+        fi
+esac
+
+#DEBHELPER#

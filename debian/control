@@ -1,0 +1,69 @@
+Source: antares
+Section: games
+Priority: optional
+Maintainer: Chris Pickel <sfiera@sfzmail.com>
+Build-Depends:
+ debhelper (>=9),
+ libpng16-dev,
+ libzip-dev,
+ zlib1g-dev,
+ libopenal-dev,
+ libmodplug-dev,
+ libsndfile-dev,
+ libneon27-dev,
+ libglfw3-dev,
+ libstdc++-dev,
+ libx11-dev,
+ libgl1-mesa-dev,
+ libglu1-mesa-dev,
+ libxcursor-dev,
+ libxinerama-dev,
+ libxrandr-dev,
+ libxxf86vm-dev,
+ python,
+ ca-certificates,
+ ninja-build,
+ clang
+Standards-Version: 3.9.6
+Homepage: http://arescentral.org/antares
+Vcs-Git: https://github.com/arescentral/antares.git
+Vcs-Browser: https://github.com/arescentral/antares
+
+Package: antares-bin
+Architecture: amd64
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends}
+Description: binaries for antares
+ Ares is a tactical space-combat game, combining elements of both arcade
+ shooters and real-time strategy games.
+
+Package: antares-data
+Architecture: all
+Depends:
+ ${misc:Depends}
+Description: data files for antares
+ Ares is a tactical space-combat game, combining elements of both arcade
+ shooters and real-time strategy games.
+
+Package: antares-scenario
+Architecture: all
+Depends:
+ ${misc:Depends},
+ antares-bin (= ${source:Version})
+Description: default scenario and base data for antares
+ Ares is a tactical space-combat game, combining elements of both arcade
+ shooters and real-time strategy games.
+
+Package: antares
+Architecture: all
+Depends:
+ ${misc:Depends},
+ antares-bin (= ${source:Version}),
+ antares-data (= ${source:Version}),
+ antares-scenario (= ${source:Version}),
+ python-gi,
+ libgtk-3-0
+Description: a tactical space-combat game
+ Ares is a tactical space-combat game, combining elements of both arcade
+ shooters and real-time strategy games.
