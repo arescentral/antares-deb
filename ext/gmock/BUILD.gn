@@ -1,0 +1,65 @@
+dist = "googletest-d225acc"
+
+config("gmock_public") {
+  include_dirs = [ "$dist/googlemock/include" ]
+}
+
+config("gmock_private") {
+  include_dirs = [
+    "$dist/googlemock/include",
+    "$dist/googlemock",
+  ]
+}
+
+config("gtest_public") {
+  defines = [ "GTEST_USE_OWN_TR1_TUPLE=1" ]
+  include_dirs = [ "$dist/googletest/include" ]
+}
+
+config("gtest_private") {
+  defines = [ "GTEST_USE_OWN_TR1_TUPLE=1" ]
+  include_dirs = [
+    "$dist/googletest/include",
+    "$dist/googletest",
+  ]
+}
+
+static_library("gmock_main") {
+  sources = [
+    "$dist/googlemock/src/gmock_main.cc",
+  ]
+  public_deps = [
+    ":gmock",
+  ]
+}
+
+static_library("gmock") {
+  sources = [
+    "$dist/googlemock/src/gmock-all.cc",
+    "$dist/googlemock/src/gmock-cardinalities.cc",
+    "$dist/googlemock/src/gmock-internal-utils.cc",
+    "$dist/googlemock/src/gmock-matchers.cc",
+    "$dist/googlemock/src/gmock-spec-builders.cc",
+    "$dist/googlemock/src/gmock.cc",
+  ]
+  public_deps = [
+    ":gtest",
+  ]
+  configs += [ ":gmock_private" ]
+  public_configs = [ ":gmock_public" ]
+}
+
+static_library("gtest") {
+  sources = [
+    "$dist/googletest/src/gtest-all.cc",
+    "$dist/googletest/src/gtest-death-test.cc",
+    "$dist/googletest/src/gtest-filepath.cc",
+    "$dist/googletest/src/gtest-port.cc",
+    "$dist/googletest/src/gtest-printers.cc",
+    "$dist/googletest/src/gtest-test-part.cc",
+    "$dist/googletest/src/gtest-typed-test.cc",
+    "$dist/googletest/src/gtest.cc",
+  ]
+  configs += [ ":gtest_private" ]
+  public_configs = [ ":gtest_public" ]
+}

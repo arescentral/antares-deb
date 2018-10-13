@@ -1,0 +1,174 @@
+declare_args() {
+  if (target_os == "linux" && rebase_path(".", "//") != ".") {
+    libsndfile = "system"
+  } else {
+    libsndfile = "bundled"
+  }
+}
+assert(libsndfile == "system" || libsndfile == "bundled")
+
+if (libsndfile == "bundled") {
+  source_set("libsndfile") {
+    public_deps = [
+      ":libsndfile-common",
+      ":libsndfile-g72x",
+      ":libsndfile-gsm610",
+    ]
+  }
+
+  config("libsndfile-public") {
+    if (target_os == "mac") {
+      include_dirs = [ "include/mac" ]
+    } else if (target_os == "linux") {
+      include_dirs = [ "include/linux" ]
+    }
+  }
+
+  config("libsndfile-private") {
+    include_dirs = [ "libsndfile-1.0.27/src" ]
+    cflags = [ "-w" ]
+    defines = [ "HAVE_CONFIG_H" ]
+    if (target_os == "mac") {
+      include_dirs += [ "src/mac" ]
+    } else if (target_os == "linux") {
+      include_dirs += [ "src/linux" ]
+    }
+  }
+
+  static_library("libsndfile-common") {
+    sources = [
+      "libsndfile-1.0.27/src/ALAC/ALACAudioTypes.h",
+      "libsndfile-1.0.27/src/ALAC/ALACBitUtilities.c",
+      "libsndfile-1.0.27/src/ALAC/ALACBitUtilities.h",
+      "libsndfile-1.0.27/src/ALAC/ag_dec.c",
+      "libsndfile-1.0.27/src/ALAC/ag_enc.c",
+      "libsndfile-1.0.27/src/ALAC/aglib.h",
+      "libsndfile-1.0.27/src/ALAC/alac_decoder.c",
+      "libsndfile-1.0.27/src/ALAC/alac_encoder.c",
+      "libsndfile-1.0.27/src/ALAC/dp_dec.c",
+      "libsndfile-1.0.27/src/ALAC/dp_enc.c",
+      "libsndfile-1.0.27/src/ALAC/dplib.h",
+      "libsndfile-1.0.27/src/ALAC/matrix_dec.c",
+      "libsndfile-1.0.27/src/ALAC/matrix_enc.c",
+      "libsndfile-1.0.27/src/ALAC/matrixlib.h",
+      "libsndfile-1.0.27/src/aiff.c",
+      "libsndfile-1.0.27/src/alac.c",
+      "libsndfile-1.0.27/src/alaw.c",
+      "libsndfile-1.0.27/src/au.c",
+      "libsndfile-1.0.27/src/audio_detect.c",
+      "libsndfile-1.0.27/src/avr.c",
+      "libsndfile-1.0.27/src/broadcast.c",
+      "libsndfile-1.0.27/src/caf.c",
+      "libsndfile-1.0.27/src/cart.c",
+      "libsndfile-1.0.27/src/chanmap.c",
+      "libsndfile-1.0.27/src/chunk.c",
+      "libsndfile-1.0.27/src/command.c",
+      "libsndfile-1.0.27/src/common.c",
+      "libsndfile-1.0.27/src/dither.c",
+      "libsndfile-1.0.27/src/double64.c",
+      "libsndfile-1.0.27/src/dwd.c",
+      "libsndfile-1.0.27/src/dwvw.c",
+      "libsndfile-1.0.27/src/file_io.c",
+      "libsndfile-1.0.27/src/flac.c",
+      "libsndfile-1.0.27/src/float32.c",
+      "libsndfile-1.0.27/src/g72x.c",
+      "libsndfile-1.0.27/src/gsm610.c",
+      "libsndfile-1.0.27/src/htk.c",
+      "libsndfile-1.0.27/src/id3.c",
+      "libsndfile-1.0.27/src/ima_adpcm.c",
+      "libsndfile-1.0.27/src/ima_oki_adpcm.c",
+      "libsndfile-1.0.27/src/interleave.c",
+      "libsndfile-1.0.27/src/ircam.c",
+      "libsndfile-1.0.27/src/mat4.c",
+      "libsndfile-1.0.27/src/mat5.c",
+      "libsndfile-1.0.27/src/mpc2k.c",
+      "libsndfile-1.0.27/src/ms_adpcm.c",
+      "libsndfile-1.0.27/src/nist.c",
+      "libsndfile-1.0.27/src/ogg.c",
+      "libsndfile-1.0.27/src/ogg_pcm.c",
+      "libsndfile-1.0.27/src/ogg_speex.c",
+      "libsndfile-1.0.27/src/ogg_vorbis.c",
+      "libsndfile-1.0.27/src/paf.c",
+      "libsndfile-1.0.27/src/pcm.c",
+      "libsndfile-1.0.27/src/pvf.c",
+      "libsndfile-1.0.27/src/raw.c",
+      "libsndfile-1.0.27/src/rf64.c",
+      "libsndfile-1.0.27/src/rx2.c",
+      "libsndfile-1.0.27/src/sd2.c",
+      "libsndfile-1.0.27/src/sds.c",
+      "libsndfile-1.0.27/src/sndfile.c",
+      "libsndfile-1.0.27/src/strings.c",
+      "libsndfile-1.0.27/src/svx.c",
+      "libsndfile-1.0.27/src/txw.c",
+      "libsndfile-1.0.27/src/ulaw.c",
+      "libsndfile-1.0.27/src/voc.c",
+      "libsndfile-1.0.27/src/vox_adpcm.c",
+      "libsndfile-1.0.27/src/w64.c",
+      "libsndfile-1.0.27/src/wav.c",
+      "libsndfile-1.0.27/src/wavlike.c",
+      "libsndfile-1.0.27/src/wve.c",
+      "libsndfile-1.0.27/src/xi.c",
+    ]
+    public_configs = [ ":libsndfile-public" ]
+    configs += [ ":libsndfile-private" ]
+
+    if (target_os == "win") {
+      sources += [ "libsndfile-1.0.27/src/windows.c" ]
+    }
+  }
+
+  static_library("libsndfile-g72x") {
+    sources = [
+      "libsndfile-1.0.27/src/G72x/g721.c",
+      "libsndfile-1.0.27/src/G72x/g723_16.c",
+      "libsndfile-1.0.27/src/G72x/g723_24.c",
+      "libsndfile-1.0.27/src/G72x/g723_40.c",
+      "libsndfile-1.0.27/src/G72x/g72x.c",
+    ]
+    public_configs = [ ":libsndfile-public" ]
+    configs += [ ":libsndfile-private" ]
+  }
+
+  static_library("libsndfile-gsm610") {
+    sources = [
+      "libsndfile-1.0.27/src/GSM610/add.c",
+      "libsndfile-1.0.27/src/GSM610/code.c",
+      "libsndfile-1.0.27/src/GSM610/decode.c",
+      "libsndfile-1.0.27/src/GSM610/gsm_create.c",
+      "libsndfile-1.0.27/src/GSM610/gsm_decode.c",
+      "libsndfile-1.0.27/src/GSM610/gsm_destroy.c",
+      "libsndfile-1.0.27/src/GSM610/gsm_encode.c",
+      "libsndfile-1.0.27/src/GSM610/gsm_option.c",
+      "libsndfile-1.0.27/src/GSM610/long_term.c",
+      "libsndfile-1.0.27/src/GSM610/lpc.c",
+      "libsndfile-1.0.27/src/GSM610/preprocess.c",
+      "libsndfile-1.0.27/src/GSM610/rpe.c",
+      "libsndfile-1.0.27/src/GSM610/short_term.c",
+      "libsndfile-1.0.27/src/GSM610/table.c",
+    ]
+    public_configs = [ ":libsndfile-public" ]
+    configs += [ ":libsndfile-private" ]
+  }
+
+  executable("sndfile-regtest") {
+    sources = [
+      "libsndfile-1.0.27/regtest/checksum.c",
+      "libsndfile-1.0.27/regtest/database.c",
+      "libsndfile-1.0.27/regtest/sndfile-regtest.c",
+    ]
+    deps = [
+      ":libsndfile",
+    ]
+    configs += [ ":libsndfile-private" ]
+  }
+} else {
+  import("//build/lib/pkg_config.gni")
+
+  pkg_config("libsndfile_public") {
+    lib = "sndfile"
+  }
+
+  source_set("libsndfile") {
+    configs += [ ":libsndfile_public" ]
+  }
+}

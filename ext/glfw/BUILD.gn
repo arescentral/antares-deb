@@ -1,0 +1,127 @@
+declare_args() {
+  if (target_os == "linux" && rebase_path(".", "//") != ".") {
+    libglfw = "system"
+  } else {
+    libglfw = "bundled"
+  }
+}
+assert(libglfw == "system" || libglfw == "bundled")
+
+if (libglfw == "bundled") {
+  static_library("libglfw") {
+    sources = [
+      "glfw-3.1.1/src/context.c",
+      "glfw-3.1.1/src/init.c",
+      "glfw-3.1.1/src/input.c",
+      "glfw-3.1.1/src/monitor.c",
+      "glfw-3.1.1/src/window.c",
+    ]
+
+    if (target_os == "mac") {
+      sources += [
+        "glfw-3.1.1/src/cocoa_init.m",
+        "glfw-3.1.1/src/cocoa_monitor.m",
+        "glfw-3.1.1/src/cocoa_window.m",
+        "glfw-3.1.1/src/iokit_joystick.m",
+        "glfw-3.1.1/src/mach_time.c",
+        "glfw-3.1.1/src/nsgl_context.m",
+        "glfw-3.1.1/src/posix_tls.c",
+      ]
+    } else if (target_os == "linux") {
+      sources += [
+        "glfw-3.1.1/src/glx_context.c",
+        "glfw-3.1.1/src/linux_joystick.c",
+        "glfw-3.1.1/src/posix_time.c",
+        "glfw-3.1.1/src/posix_tls.c",
+        "glfw-3.1.1/src/x11_init.c",
+        "glfw-3.1.1/src/x11_monitor.c",
+        "glfw-3.1.1/src/x11_window.c",
+        "glfw-3.1.1/src/xkb_unicode.c",
+      ]
+    }
+
+    public_configs = [ ":libglfw_public" ]
+    configs += [ ":libglfw_private" ]
+  }
+
+  config("libglfw_public") {
+    include_dirs = [ "glfw-3.1.1/include" ]
+    if (target_os == "mac") {
+      libs = [
+        "Cocoa.framework",
+        "CoreVideo.framework",
+        "IOKit.framework",
+        "OpenGL.framework",
+      ]
+    } else if (target_os == "linux") {
+      libs = [
+        "-lGL",
+        "-lGLU",
+        "-lm",
+        "-lpthread",
+        "-lX11",
+        "-lXcursor",
+        "-lXinerama",
+        "-lXxf86vm",
+        "-lXrandr",
+      ]
+    }
+  }
+
+  config("libglfw_private") {
+    cflags = [
+      "-Wall",
+      "-Wno-deprecated-declarations",
+    ]
+    defines = [ "_GLFW_USE_CONFIG_H" ]
+    include_dirs = [
+      "glfw-3.1.1/src",
+      "glfw-3.1.1/include",
+    ]
+    if (target_os == "mac") {
+      include_dirs += [ "src/mac" ]
+    } else if (target_os == "linux") {
+      include_dirs += [ "src/linux" ]
+    }
+  }
+
+  executable("boing") {
+    sources = [
+      "glfw-3.1.1/examples/boing.c",
+    ]
+    deps = [
+      ":libglfw",
+    ]
+    configs += [ ":libglfw_private" ]
+  }
+
+  executable("gears") {
+    sources = [
+      "glfw-3.1.1/examples/gears.c",
+    ]
+    deps = [
+      ":libglfw",
+    ]
+    configs += [ ":libglfw_private" ]
+  }
+
+  executable("wave") {
+    sources = [
+      "glfw-3.1.1/examples/wave.c",
+    ]
+    deps = [
+      ":libglfw",
+    ]
+    configs += [ ":libglfw_private" ]
+  }
+} else {
+  import("//build/lib/pkg_config.gni")
+
+  pkg_config("libglfw_public") {
+    lib = "glfw3"
+  }
+
+  source_set("libglfw") {
+    configs += [ ":libglfw_public" ]
+  }
+}

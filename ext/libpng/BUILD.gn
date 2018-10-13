@@ -1,0 +1,79 @@
+declare_args() {
+  if (target_os == "linux" && rebase_path(".", "//") != ".") {
+    libpng = "system"
+  } else {
+    libpng = "bundled"
+  }
+}
+assert(libpng == "system" || libpng == "bundled")
+
+if (libpng == "bundled") {
+  config("libpng_private") {
+    cflags = [
+      "-Wall",
+      "-Werror",
+    ]
+    include_dirs = [ "libpng-1.6.28" ]
+
+    if (target_os == "mac") {
+      include_dirs += [ "src/darwin" ]
+    } else if (target_os == "linux") {
+      include_dirs += [ "src/mac" ]
+    }
+  }
+
+  config("libpng_public") {
+    include_dirs = [ "include/all" ]
+    libs = [
+      "-lz",
+      "-lm",
+    ]
+
+    if (target_os == "mac") {
+      include_dirs += [ "include/darwin" ]
+    } else if (target_os == "linux") {
+      include_dirs += [ "include/linux" ]
+    }
+  }
+
+  static_library("libpng") {
+    sources = [
+      "libpng-1.6.28/png.c",
+      "libpng-1.6.28/pngerror.c",
+      "libpng-1.6.28/pngget.c",
+      "libpng-1.6.28/pngmem.c",
+      "libpng-1.6.28/pngpread.c",
+      "libpng-1.6.28/pngread.c",
+      "libpng-1.6.28/pngrio.c",
+      "libpng-1.6.28/pngrtran.c",
+      "libpng-1.6.28/pngrutil.c",
+      "libpng-1.6.28/pngset.c",
+      "libpng-1.6.28/pngtrans.c",
+      "libpng-1.6.28/pngwio.c",
+      "libpng-1.6.28/pngwrite.c",
+      "libpng-1.6.28/pngwtran.c",
+      "libpng-1.6.28/pngwutil.c",
+    ]
+    configs += [ ":libpng_private" ]
+    public_configs = [ ":libpng_public" ]
+  }
+
+  executable("pngtest") {
+    sources = [
+      "libpng-1.6.28/pngtest.c",
+    ]
+    deps = [
+      ":libpng",
+    ]
+  }
+} else {
+  import("//build/lib/pkg_config.gni")
+
+  pkg_config("libpng_public") {
+    lib = "libpng16"
+  }
+
+  source_set("libpng") {
+    configs += [ ":libpng_public" ]
+  }
+}

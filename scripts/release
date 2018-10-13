@@ -1,0 +1,72 @@
+#!/bin/zsh
+# Copyright (C) 2017 The Antares Authors
+# This file is part of Antares, a tactical space combat game.
+# Antares is free software, distributed under the LGPL+. See COPYING.
+
+set -o errexit
+
+progname=$(basename $0)
+usage() {
+    echo >&2 "usage: $progname start VERSION"
+    echo >&2 "       $progname finish VERSION"
+    exit 1
+}
+
+if [[ $# != 2 ]]; then
+    usage
+fi
+
+# Check that there is a line 'VERSION = "..."' in the gn file.
+grep >/dev/null '^  antares_version = ".*"$' BUILD.gn
+ACTION=$1
+VERSION=$2
+
+if [[ $1 = start ]]; then
+    if [[ $(git rev-parse HEAD) != $(git rev-parse master) ]]; then
+        echo >&2 "must be on master"
+        exit 1
+    fi
+elif [[ $1 = finish ]]; then
+    if [[ $(git rev-parse HEAD) != $(git rev-parse release/$VERSION) ]]; then
+        echo >&2 "must be on release/$VERSION"
+        exit 1
+    fi
+else
+    usage
+fi
+
+update-gn() {
+    sed 's/  antares_version = ".*"/  antares_version = "'$1'"/' BUILD.gn >.BUILD.gn.tmp
+    mv .BUILD.gn.tmp BUILD.gn
+}
+
+update-readme() {
+    sed 's/\(Antares[- ]\)\([0-9.]*\)[0-9]/\1'$1'/g' README.rst >.README.rst.tmp
+    mv .README.rst.tmp README.rst
+}
+
+if [[ $ACTION == start ]]; then
+    set -o verbose
+    git checkout -b release/$VERSION
+    update-gn ${VERSION}~rc1
+    git commit BUILD.gn README.rst -m "Create release branch for $VERSION."
+else
+    set -o verbose
+    update-gn $VERSION
+    update-readme $VERSION
+    git commit BUILD.gn README.rst -m "Release Antares $VERSION."
+
+    git checkout stable
+    git merge --no-ff release/$VERSION
+    git tag v$VERSION
+    ./configure --mode=opt
+    make
+    make sign
+    (cd out/cur && zip -r ../../antares-mac-$VERSION.zip Antares.app)
+    scripts/dist.py zip
+    scripts/dist.py gz
+    scripts/dist.py bz2
+
+    git checkout master
+    git merge --no-ff release/$VERSION
+fi

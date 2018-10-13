@@ -1,0 +1,23 @@
+#!/bin/zsh
+# Copyright (C) 2017 The Antares Authors
+# This file is part of Antares, a tactical space combat game.
+# Antares is free software, distributed under the LGPL+. See COPYING.
+
+if [ "$#" != 3 ]; then
+    echo 1>&2 "usage: $0 A B OUT"
+    exit 64
+fi
+IFS=""
+diff -rq "$1" "$2" | while read LINE; do
+    A="${${LINE#Files }% and *}"
+    B="${${LINE#* and }% differ}"
+    C="$3${A#$1}"
+    mkdir -p "$(dirname $C)"
+    if [ "${A%.png}" != "$A" ]; then
+        echo "Images $A and $B differ"
+        compare "$A" "$B" "$C"
+    else
+        echo "Files $A and $B differ"
+        diff -u "$A" "$B" > "$C"
+    fi
+done

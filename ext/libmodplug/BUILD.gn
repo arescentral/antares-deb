@@ -1,0 +1,78 @@
+declare_args() {
+  if (target_os == "linux" && rebase_path(".", "//") != ".") {
+    libmodplug = "system"
+  } else {
+    libmodplug = "bundled"
+  }
+}
+assert(libmodplug == "system" || libmodplug == "bundled")
+
+if (libmodplug == "bundled") {
+  static_library("libmodplug") {
+    sources = [
+      "libmodplug-0.8.8.5/src/fastmix.cpp",
+      "libmodplug-0.8.8.5/src/load_669.cpp",
+      "libmodplug-0.8.8.5/src/load_abc.cpp",
+      "libmodplug-0.8.8.5/src/load_amf.cpp",
+      "libmodplug-0.8.8.5/src/load_ams.cpp",
+      "libmodplug-0.8.8.5/src/load_dbm.cpp",
+      "libmodplug-0.8.8.5/src/load_dmf.cpp",
+      "libmodplug-0.8.8.5/src/load_dsm.cpp",
+      "libmodplug-0.8.8.5/src/load_far.cpp",
+      "libmodplug-0.8.8.5/src/load_it.cpp",
+      "libmodplug-0.8.8.5/src/load_mdl.cpp",
+      "libmodplug-0.8.8.5/src/load_med.cpp",
+      "libmodplug-0.8.8.5/src/load_mid.cpp",
+      "libmodplug-0.8.8.5/src/load_mod.cpp",
+      "libmodplug-0.8.8.5/src/load_mt2.cpp",
+      "libmodplug-0.8.8.5/src/load_mtm.cpp",
+      "libmodplug-0.8.8.5/src/load_okt.cpp",
+      "libmodplug-0.8.8.5/src/load_pat.cpp",
+      "libmodplug-0.8.8.5/src/load_psm.cpp",
+      "libmodplug-0.8.8.5/src/load_ptm.cpp",
+      "libmodplug-0.8.8.5/src/load_s3m.cpp",
+      "libmodplug-0.8.8.5/src/load_stm.cpp",
+      "libmodplug-0.8.8.5/src/load_ult.cpp",
+      "libmodplug-0.8.8.5/src/load_umx.cpp",
+      "libmodplug-0.8.8.5/src/load_wav.cpp",
+      "libmodplug-0.8.8.5/src/load_xm.cpp",
+      "libmodplug-0.8.8.5/src/mmcmp.cpp",
+      "libmodplug-0.8.8.5/src/modplug.cpp",
+      "libmodplug-0.8.8.5/src/snd_dsp.cpp",
+      "libmodplug-0.8.8.5/src/snd_flt.cpp",
+      "libmodplug-0.8.8.5/src/snd_fx.cpp",
+      "libmodplug-0.8.8.5/src/sndfile.cpp",
+      "libmodplug-0.8.8.5/src/sndmix.cpp",
+    ]
+
+    configs += [ ":libmodplug_private" ]
+    public_configs = [ ":libmodplug_public" ]
+  }
+
+  config("libmodplug_public") {
+    include_dirs = [ "include" ]
+  }
+
+  config("libmodplug_private") {
+    defines = [ "HAVE_CONFIG_H=1" ]
+    cflags = [
+      "-Wno-sizeof-pointer-memaccess",
+      "-Wno-deprecated-register",
+    ]
+    include_dirs = [
+      "src/$target_os",
+      "libmodplug-0.8.8.5/src",
+      "libmodplug-0.8.8.5/src/libmodplug",
+    ]
+  }
+} else {
+  import("//build/lib/pkg_config.gni")
+
+  pkg_config("libmodplug_public") {
+    lib = "libmodplug"
+  }
+
+  source_set("libmodplug") {
+    configs += [ ":libmodplug_public" ]
+  }
+}
