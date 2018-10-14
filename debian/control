@@ -15,7 +15,7 @@ Build-Depends:
  libmodplug-dev,
  libneon27-dev,
  libopenal-dev,
- libpng16-dev,
+ libpng-dev,
  libsndfile-dev,
  libstdc++-dev,
  libx11-dev,
