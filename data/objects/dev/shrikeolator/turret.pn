@@ -1,0 +1,23 @@
+template:    "tpl/turret"
+long_name:   "Shrikeolator"
+short_name:  "SHRKOLTR"
+notes:       "Pushes you far far away"
+device:
+	fire_time:     "1s10t"
+	ammo:          150
+	range:         1440.0
+	speed:         9.0
+	restock_cost:  24
+activate:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/shrikeolator/pulse"
+			relative_velocity:   true
+			relative_direction:  true
+		*	type:                "play"
+			reflexive:           true
+			sound:               "dev/kl"
+			priority:            3
+			persistence:         "10t"
+			volume:              255

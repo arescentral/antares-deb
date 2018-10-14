@@ -1,0 +1,16 @@
+template:    "tpl/turret"
+long_name:   "Flak Artillery"
+short_name:  "FLAKART"
+notes:       "Flak Artillery"
+device:
+	fire_time:  "0.25s"
+	range:      900.0
+	speed:      15.0
+activate:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/flak/pulse"
+			count:               {begin: 1, end: 3}
+			relative_velocity:   true
+			relative_direction:  true

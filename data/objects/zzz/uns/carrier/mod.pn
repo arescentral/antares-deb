@@ -1,0 +1,27 @@
+template:           "tpl/carrier"
+short_name:         "Carrier"
+notes:              "Modified"
+class:              "501"
+race:               "uns"
+shield_color:       "white"
+build_time:         "50s"
+warp_speed:         20.0
+warp_out_distance:  1185.9374
+weapons:
+	pulse:
+		base:  "dev/fullerene/gun"
+		positions:
+			*	{x: -14.0, y: 60.0}
+			*	{x: 0.0, y: 60.0}
+			*	{x: 14.0, y: 60.0}
+	beam:
+		base:  "dev/onas/gun"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	special:
+		base:  "dev/bay/uns"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "uns/carrier"
+	frames:  {begin: 0, end: 24}

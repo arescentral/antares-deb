@@ -1,0 +1,23 @@
+template:    "tpl/turret"
+long_name:   "ClusterCell Array"
+short_name:  "CLSTRCEL"
+notes:       "ClusterCell Array"
+device:
+	fire_time:     "0.25s"
+	ammo:          110
+	range:         280.0
+	speed:         1.192092896e-07
+	restock_cost:  50
+activate:
+	action:
+		*	type:                "play"
+			reflexive:           true
+			sound:               "dev/cluster"
+			priority:            0
+			persistence:         "10t"
+			volume:              255
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/cluster/pulse"
+			count:               {begin: 1, end: 4}
+			relative_direction:  true

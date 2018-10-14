@@ -1,0 +1,17 @@
+template:      "tpl/ship"
+health:        5000
+energy:        5000
+price:         22.5
+build_time:    "1m40s"
+mass:          2.0
+turn_rate:     1.0
+max_velocity:  3.0
+thrust:        0.008
+warp_speed:    40.0
+rotation:      {scale: 2.0}
+icon:
+	shape:  "diamond"
+	size:   8
+ai:
+	escort:  {class: 7, power: 4.0, need: 2.0}
+	build:   {ratio: 0.098}

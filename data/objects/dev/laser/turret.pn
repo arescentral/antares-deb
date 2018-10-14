@@ -1,0 +1,22 @@
+template:    "tpl/turret"
+long_name:   "Laser Turret"
+short_name:  "LSRTURRT"
+notes:       "Laser Turret"
+device:
+	energy_cost:  10
+	fire_time:    "10t"
+	range:        450.0
+	speed:        15.0
+activate:
+	action:
+		*	type:                "play"
+			reflexive:           true
+			sound:               "dev/laser/turret"
+			priority:            3
+			persistence:         "10t"
+			volume:              255
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/laser/turret-bolt"
+			relative_velocity:   true
+			relative_direction:  true

@@ -1,0 +1,13 @@
+template:      "tpl/engineer"
+notes:         "Engineer Pod"
+portrait:      "ish/engineer"
+race:          "ish"
+shield_color:  {gold: 240}
+weapons:
+	beam:
+		base:  "dev/repulser/turret"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "ish/engineer"
+	frames:  {begin: 0, end: 24}

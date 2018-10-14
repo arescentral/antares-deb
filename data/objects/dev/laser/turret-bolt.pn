@@ -1,0 +1,19 @@
+template:    "tpl/bolt"
+long_name:   "Laser"
+short_name:  "LASER"
+notes:       "Laser"
+autotarget:  true
+bolt:
+	color:  {r: 127, g: 255, b: 127}
+expire:
+	after:
+		age:  "0.5s"
+collide:
+	damage:  15
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/energy"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true

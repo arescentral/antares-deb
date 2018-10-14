@@ -1,0 +1,23 @@
+template:           "tpl/hvc"
+notes:              "Heavy Cruiser"
+portrait:           "can/hvc"
+race:               "can"
+shield_color:       {gold: 240}
+warp_out_distance:  3120.0
+weapons:
+	pulse:
+		base:  "dev/anti1/rapid"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/pk/can/gun"
+		positions:
+			*	{x: -5.0, y: 0.0}
+			*	{x: 5.0, y: 0.0}
+	special:
+		base:  "dev/stealth/item"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "can/hvc"
+	frames:  {begin: 0, end: 24}

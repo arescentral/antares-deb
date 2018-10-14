@@ -1,0 +1,29 @@
+template:          "tpl/bolt"
+long_name:         "Lepton Beam"
+short_name:        "L BEAM"
+notes:             "Lepton Beam"
+max_velocity:      20.0
+thrust:            0.65
+initial_velocity:  5.0
+bolt:
+	color:  {r: 255, g: 255, b: 127}
+expire:
+	after:
+		age:  "29t"
+create:
+	action:
+		*	type:         "play"
+			reflexive:    true
+			sound:        "dev/lepton"
+			priority:     3
+			persistence:  "10t"
+			volume:       255
+collide:
+	damage:  80
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/energy"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true

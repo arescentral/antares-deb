@@ -1,0 +1,45 @@
+template:      "tpl/utilship"
+long_name:     "SL Transport"
+short_name:    "TRANSPRT"
+notes:         "SL Transport"
+class:         "801"
+race:          "ish"
+health:        250
+shield_color:  "white"
+energy:        1000
+price:         4.0
+build_time:    "7.5s"
+mass:          1.2
+max_velocity:  3.0
+thrust:        0.156
+rotation:
+	sprite:  "ish/transport"
+	frames:  {begin: 0, end: 24}
+icon:    {size: 5}
+target:  {hide: true}
+destroy:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/large"
+			relative_direction:  true
+arrive:
+	action:
+		*	type:  "group"
+			if:
+				attributes:  {is_destination: true}
+				owner:       "different"
+			of:
+				*	type:         "land"
+					reflexive:    true
+					speed:        32
+				*	type:         "play"
+					absolute:     true
+					sound:        "tpl/transport/land"
+					priority:     5
+					persistence:  "20t"
+					volume:       255
+ai:
+	combat:  {engages: false}
+	escort:  {class: 9, power: 3.0, need: 3.0}
+	build:   {ratio: 0.098, needs_escort: false}

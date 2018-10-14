@@ -1,0 +1,14 @@
+template:    "tpl/turret"
+long_name:   "Electronic Jam"
+short_name:  "ELCTJAM"
+notes:       "Electronic Jamming Device"
+device:
+	fire_time:     "1s10t"
+	ammo:          150
+	range:         1440.0
+	speed:         9.0
+	restock_cost:  24
+activate:
+	action:
+		*	type:      "disable"
+			duration:  "2s"

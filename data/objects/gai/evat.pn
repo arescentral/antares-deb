@@ -1,0 +1,16 @@
+template:      "tpl/evat"
+notes:         "Gaitori Extra-vehicular Assault Trooper"
+race:          "gai"
+shield_color:  "white"
+price:         3.0
+build_time:    "3s"
+weapons:
+	beam:
+		base:  "dev/conc/gun"
+		positions:
+			*	{x: -3.0, y: 0.0}
+			*	{x: 3.0, y: 0.0}
+rotation:
+	sprite:  "gai/evat"
+	frames:  {begin: 0, end: 24}
+target:  {lock: false}

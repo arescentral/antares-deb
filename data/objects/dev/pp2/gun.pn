@@ -1,0 +1,23 @@
+template:    "tpl/gun"
+long_name:   "Protopulse 2 Gun"
+short_name:  "PRTOPLSE"
+notes:       "Protopulse 2 Gun"
+device:
+	fire_time:     "0.25s"
+	ammo:          250
+	range:         520.0
+	speed:         13.5
+	restock_cost:  12
+activate:
+	action:
+		*	type:                "play"
+			reflexive:           true
+			sound:               "dev/pp"
+			priority:            3
+			persistence:         "10t"
+			volume:              255
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/pp2/pulse"
+			relative_velocity:   true
+			relative_direction:  true

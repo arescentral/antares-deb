@@ -1,0 +1,23 @@
+template:    "tpl/gun"
+long_name:   "Plasma Ball"
+short_name:  "PLASMA"
+notes:       "Plasma Ball, Fireball"
+device:
+	fire_time:     "25t"
+	ammo:          50
+	range:         540.0
+	speed:         12.0
+	restock_cost:  3
+activate:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/fireball/pulse"
+			relative_velocity:   true
+			relative_direction:  true
+		*	type:                "play"
+			reflexive:           true
+			sound:               "dev/fireball"
+			priority:            3
+			persistence:         "0.25s"
+			volume:              255

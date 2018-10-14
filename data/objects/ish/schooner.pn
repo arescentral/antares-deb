@@ -1,0 +1,13 @@
+template:      "tpl/schooner"
+notes:         "Schooner"
+race:          "ish"
+shield_color:  "white"
+weapons:
+	beam:
+		base:  "dev/pk/ish/gun"
+		positions:
+			*	{x: -10.0, y: 0.0}
+			*	{x: 10.0, y: 0.0}
+rotation:
+	sprite:  "ish/schooner"
+	frames:  {begin: 0, end: 24}

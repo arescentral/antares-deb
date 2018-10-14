@@ -1,0 +1,27 @@
+template:    "tpl/gun"
+long_name:   "Concsv Pellet Gun"
+short_name:  "CCPLTGUN"
+notes:       "Machine gun"
+device:
+	energy_cost:  10
+	fire_time:    "5t"
+	range:        225.0
+	speed:        15.0
+activate:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/conc/pellet"
+			relative_velocity:   true
+			relative_direction:  true
+		*	type:                "play"
+			reflexive:           true
+			sound:               "dev/conc"
+			priority:            0
+			persistence:         "10t"
+			volume:              255
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/gunsmoke"
+			relative_velocity:   true
+			relative_direction:  true

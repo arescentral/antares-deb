@@ -1,0 +1,22 @@
+template:      "tpl/hvc"
+notes:         "Heavy Cruiser"
+portrait:      "ish/hvc"
+race:          "ish"
+shield_color:  "white"
+weapons:
+	pulse:
+		base:  "dev/fusion/rapid"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/pk/ish/rapid"
+		positions:
+			*	{x: -10.0, y: 0.0}
+			*	{x: 10.0, y: 0.0}
+	special:
+		base:  "dev/cm/five"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "ish/hvc"
+	frames:  {begin: 0, end: 24}

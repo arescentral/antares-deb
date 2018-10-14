@@ -1,0 +1,32 @@
+template:           "tpl/rotation"
+long_name:          "Castaway Crew Member"
+short_name:         "CREW"
+notes:              "Castaway Crew Member"
+health:             1
+mass:               0.5
+turn_rate:          2.0
+max_velocity:       3.0
+initial_velocity:   {begin: 0.5, end: 2.0}
+initial_direction:  {begin: 0, end: 360}
+rotation:
+	sprite:  "sfx/crew"
+	scale:   0.5
+	frames:  {begin: 0, end: 24}
+icon:
+	shape:  "square"
+	size:   1
+expire:
+	after:
+		age:
+			begin:  "16s40t"
+			end:    "25s"
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/missile-hit"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true
+collide:  {damage: 1, edge: true}
+ai:
+	escort:  {class: -256}

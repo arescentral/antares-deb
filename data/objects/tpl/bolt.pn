@@ -1,0 +1,13 @@
+template:      "tpl/any"
+health:        1000
+max_velocity:  15.0
+bolt:
+	color:  {r: -1, g: -1, b: -1}
+expire:
+	after:
+		age:  "0.25s"
+collide:
+	as:      {subject: true}
+	damage:  30
+ai:
+	escort:  {class: -256}

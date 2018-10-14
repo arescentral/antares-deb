@@ -1,0 +1,43 @@
+template:      "tpl/transport"
+short_name:    "TRNSPORT"
+notes:         "Fleeing to Jump Gate"
+class:         "1801"
+race:          "uns"
+shield_color:  "white"
+rotation:
+	sprite:  "uns/transport"
+	frames:  {begin: 0, end: 24}
+destroy:
+	action:
+		*	type:       "create"
+			reflexive:  true
+			override:
+				subject:  {initial: 0}
+				direct:   {initial: 0}
+			base:       "sfx/explosion/large"
+		*	type:       "win"
+			reflexive:  true
+			player:     1
+			text:
+				>	Out base on Lelande Alpha was captured.
+expire:
+	action:
+		*	type:       "score"
+			reflexive:  true
+			counter:    {player: 0, which: 0}
+			value:      1
+		*	type:       "check"
+arrive:
+	action:
+		*	type:       "create"
+			reflexive:  true
+			if:
+				tags:  {jumpgate: true}
+			base:       "sfx/jump/small"
+		*	type:       "delay"
+			duration:   "2s"
+		*	type:       "land"
+			reflexive:  true
+			if:
+				tags:  {jumpgate: true}
+			speed:  80

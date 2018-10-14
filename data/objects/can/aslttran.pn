@@ -1,0 +1,37 @@
+template:      "tpl/aslttran"
+notes:         "Assault Transport"
+portrait:      "can/aslttran"
+race:          "can"
+shield_color:  {gold: 240}
+weapons:
+	pulse:
+		base:  "dev/cm/five"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/pk/ish/rapid"
+		positions:
+			*	{x: -8.0, y: 0.0}
+			*	{x: 8.0, y: 0.0}
+	special:
+		base:  "dev/assault/can"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "can/aslttran"
+	frames:  {begin: 0, end: 24}
+destroy:
+	action:
+		*	type:       "fire"
+			reflexive:  true
+			if:
+				tags:   {station: true}
+				owner:  "different"
+			which:      "special"
+		*	type:       "create"
+			reflexive:  true
+			base:       "sfx/explosion/large"
+ai:
+	target:
+		prefer:  {base: true}
+	escort:  {need: 5.0}

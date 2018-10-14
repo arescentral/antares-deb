@@ -1,0 +1,28 @@
+template:           "baz/bttlship"
+long_name:          "Battleship-Moored"
+notes:              "Battleship-Moored"
+tags:               {energizable: null}
+build_time:         "0s"
+turn_rate:          0.0
+max_velocity:       0.0
+thrust:             0.0
+warp_speed:         0.0
+warp_out_distance:  0
+icon:               {size: 9}
+target:             {order: false, select: false}
+destroy:            {release_energy: false}
+collide:
+	as:  {subject: false, direct: false}
+ai:
+	combat:
+		hated:    false
+		engages:  false
+		engaged:  false
+		evades:   false
+		evaded:   false
+		skill:    {num: 0, den: 0}
+	escort:  {power: 0.0, need: 0.0}
+	build:   {ratio: 0.0}
+portrait:      null
+shield_color:  null
+weapons:       null

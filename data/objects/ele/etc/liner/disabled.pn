@@ -1,0 +1,21 @@
+template:      "ele/etc/liner"
+notes:         "Liner Disabled"
+turn_rate:     0.0
+max_velocity:  0.5
+thrust:        0.0
+target:        {order: false}
+expire:        {action: null}
+collide:       {edge: false}
+ai:
+	combat:
+		hated:    false
+		engaged:  false
+		evades:   false
+		skill:    {num: 0, den: 0}
+	target:
+		prefer:
+			owner:  "any"
+			base:   null
+	build:  {needs_escort: false}
+portrait:          null
+initial_velocity:  null

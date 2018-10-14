@@ -1,0 +1,23 @@
+template:          "obi/transport"
+notes:             "Can Pick Up Guys"
+tags:              {rescue: true, planet: null}
+class:             "881"
+initial_velocity:  1.5
+weapons:
+	beam:
+		positions:
+			*	{x: -5.0, y: 0.0}
+			*	{x: 0.0, y: 0.0}
+			*	{x: 5.0, y: 0.0}
+target:  {hide: false}
+expire:  {action: null}
+arrive:  {action: null}
+ai:
+	combat:  {evaded: true}
+	target:
+		prefer:
+			owner:  "any"
+			base:   null
+	escort:  {power: 1.0}
+	build:   {ratio: 0.4, needs_escort: false}
+portrait:  null

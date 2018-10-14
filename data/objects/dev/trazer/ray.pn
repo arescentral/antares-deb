@@ -1,0 +1,19 @@
+template:    "tpl/ray"
+long_name:   "Trazer Beam"
+short_name:  "TRZRBEAM"
+notes:       "Trazer Beam"
+ray:
+	to:        "coord"
+	hue:       "pale-purple"
+	accuracy:  50
+	range:     300
+expire:
+	after:
+		age:  "1.5s"
+collide:
+	damage:  30
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/energy"
+			relative_direction:  true

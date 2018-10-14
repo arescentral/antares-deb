@@ -1,0 +1,17 @@
+template:    "tpl/turret"
+long_name:   "Atomic Pulse Gun"
+short_name:  "ATOMPLSE"
+notes:       "Atomic Pulse Gun"
+device:
+	fire_time:     "4s"
+	ammo:          100
+	range:         2149.0
+	speed:         7.1
+	restock_cost:  80
+activate:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/atomic/pulse"
+			relative_velocity:   true
+			relative_direction:  true

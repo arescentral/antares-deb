@@ -1,0 +1,20 @@
+template:           "tpl/rotation"
+long_name:          "Ship"
+short_name:         "SHIP"
+tags:               {energizable: true}
+turn_rate:          2.0
+initial_direction:  {begin: 0, end: 360}
+target:             {radar: true, order: true, select: true}
+destroy:            {release_energy: true}
+collide:
+	as:     {subject: true, direct: true}
+	solid:  true
+	edge:   true
+ai:
+	combat:
+		hated:    true
+		engages:  true
+		engaged:  true
+		evades:   true
+		evaded:   true
+		skill:    {num: 3, den: 21}

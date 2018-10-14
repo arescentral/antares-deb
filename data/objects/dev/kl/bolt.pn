@@ -1,0 +1,22 @@
+template:    "tpl/bolt"
+long_name:   "Kinetic Laser"
+short_name:  "KLBEAM"
+notes:       "Same as #3, except sound"
+bolt:
+	color:  {r: 127, g: 255, b: 127}
+create:
+	action:
+		*	type:         "play"
+			reflexive:    true
+			sound:        "dev/kl"
+			priority:     3
+			persistence:  "10t"
+			volume:       255
+collide:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/energy"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true

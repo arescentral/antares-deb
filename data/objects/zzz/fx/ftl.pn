@@ -1,0 +1,39 @@
+template:           "tpl/anipulse"
+long_name:          "Superlight Boosters"
+short_name:         "LGHTDRVE"
+notes:              "Superlight Boosters"
+health:             100
+price:              5.0
+mass:               0.0
+max_velocity:       6.0
+thrust:             2.0
+initial_velocity:   {begin: 6.0, end: 12.0}
+initial_direction:  {begin: 0, end: 360}
+animation:
+	sprite:  "zzz/sfx/ftl"
+	frames:  {begin: 0.0, end: 23.004}
+	speed:   0.156
+	first:   {begin: 0.0, end: 23.0}
+target:  {select: true}
+expire:
+	after:
+		age:
+			begin:  "9s"
+			end:    "10s10t"
+collide:  {damage: 0}
+arrive:
+	distance:  70.714
+	action:
+		*	type:  "equip"
+			if:
+				attributes:  {can_be_destination: true}
+			which:      "special"
+			base:       "dev/anti2/gun"
+		*	type:       "remove"
+			reflexive:  true
+ai:
+	combat:
+		engages:  true
+		engaged:  true
+		skill:    {num: 3, den: 21}
+icon:  null

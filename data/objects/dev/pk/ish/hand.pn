@@ -1,0 +1,16 @@
+template:    "tpl/gun"
+long_name:   "Hand PK Beam"
+short_name:  "HANDBEAM"
+notes:       "Hand PK Beam"
+device:
+	energy_cost:  10
+	fire_time:    "20t"
+	range:        150.0
+	speed:        10.2
+activate:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/pk/ish/bolt"
+			relative_velocity:   true
+			relative_direction:  true

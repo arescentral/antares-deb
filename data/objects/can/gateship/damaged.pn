@@ -1,0 +1,9 @@
+template:  "can/gateship/base"
+notes:     "Normal [usually has 198 for Special Weapon, health of 80000]"
+health:    70000
+weapons:   {pulse: null}
+destroy:
+	action:
+		*	type:       "morph"
+			reflexive:  true
+			base:       "can/gateship/dying"

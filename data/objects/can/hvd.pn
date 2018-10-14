@@ -1,0 +1,22 @@
+template:      "tpl/hvd"
+notes:         "Heavy Destroyer"
+race:          "can"
+shield_color:  {gold: 240}
+weapons:
+	pulse:
+		base:  "dev/quasi/gun"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/pk/can/gun"
+		positions:
+			*	{x: -5.0, y: 0.0}
+			*	{x: 0.0, y: 0.0}
+			*	{x: 5.0, y: 0.0}
+	special:
+		base:  "dev/stealth/item"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "can/hvd"
+	frames:  {begin: 0, end: 24}

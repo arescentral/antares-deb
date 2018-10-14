@@ -1,0 +1,18 @@
+template:          "tpl/defdrone"
+notes:             "Defense Drone"
+portrait:          "ish/defdrone"
+race:              "ish"
+shield_color:      "white"
+initial_velocity:  0.098
+weapons:
+	pulse:
+		base:  "dev/fusion/rapid"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/pk/ish/rapid"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "ish/defdrone"
+	frames:  {begin: 0, end: 24}

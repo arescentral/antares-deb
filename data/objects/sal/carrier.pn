@@ -1,0 +1,31 @@
+template:           "tpl/carrier"
+notes:              "Carrier"
+portrait:           "sal/carrier"
+race:               "sal"
+health:             7500
+shield_color:       "white"
+energy:             6500
+price:              30.0
+build_time:         "50s"
+mass:               2.5
+max_velocity:       4.0
+thrust:             0.02
+warp_out_distance:  3120.0
+weapons:
+	pulse:
+		base:  "dev/tspace/gun"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/magno/turret"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	special:
+		base:  "dev/bay/sal"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "sal/carrier"
+	frames:  {begin: 0, end: 24}
+ai:
+	escort:  {power: 4.5}

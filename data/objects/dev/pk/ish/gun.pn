@@ -1,0 +1,16 @@
+template:    "tpl/gun"
+long_name:   "P-K Beam Cannon"
+short_name:  "PKBEAM 1"
+notes:       "P-K Beam Cannon"
+device:
+	energy_cost:  10
+	fire_time:    "20t"
+	range:        225.0
+	speed:        15.0
+activate:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/pk/ish/bolt"
+			relative_velocity:   true
+			relative_direction:  true

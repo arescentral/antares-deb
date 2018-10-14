@@ -1,0 +1,16 @@
+template:      "tpl/station"
+long_name:     "Bunker Station"
+short_name:    "STATION"
+notes:         "Bunker Station"
+portrait:      "loc/bunker"
+occupy_count:  5
+weapons:
+	pulse:
+		base:  "dev/pp/turret"
+	beam:
+		base:  "dev/repulser/turret"
+	special:
+		base:  "dev/cm/launcher"
+animation:
+	sprite:  "loc/bunker"
+	scale:   2.0

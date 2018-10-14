@@ -1,0 +1,17 @@
+template:      "gro/ctf/cruiser/p2-active"
+notes:         "Cruiser, for CTF, Player 2, Inactive"
+tags:          {disabled: true, reactivator: true, normal: null, normal-attacker: null, energizable: null}
+class:         "204"
+max_velocity:  0.0
+destroy:       {action: null}
+collide:
+	as:  {direct: false}
+ai:
+	combat:
+		engaged:
+			if:
+				tags:  {reactivator: true}
+		evades:  false
+		evaded:  false
+shield_color:  null
+weapons:       null

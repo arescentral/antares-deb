@@ -1,0 +1,22 @@
+template:    "tpl/gun"
+long_name:   "ASB Beam Cannon"
+short_name:  "ASB BEAM"
+notes:       "ASB Beam Cannon"
+device:
+	energy_cost:  10
+	fire_time:    "20t"
+	range:        600.0
+	speed:        21.0
+activate:
+	action:
+		*	type:                "play"
+			reflexive:           true
+			sound:               "dev/asb"
+			priority:            3
+			persistence:         "10t"
+			volume:              255
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/asb/bolt"
+			relative_velocity:   true
+			relative_direction:  true

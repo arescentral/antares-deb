@@ -1,0 +1,28 @@
+template:           "tpl/cruiser"
+notes:              "Cruiser"
+portrait:           "aud/cruiser"
+race:               "aud"
+health:             1500
+shield_color:       {indigo: 240}
+turn_rate:          2.5
+max_velocity:       7.5
+initial_velocity:   5.0
+warp_speed:         50.0
+warp_out_distance:  5742.1876
+weapons:
+	pulse:
+		base:  "dev/inasa/gun"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/asb/gun"
+		positions:
+			*	{x: -5.0, y: 0.0}
+			*	{x: 5.0, y: 0.0}
+	special:
+		base:  "dev/holo/item"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "aud/cruiser"
+	frames:  {begin: 0, end: 24}

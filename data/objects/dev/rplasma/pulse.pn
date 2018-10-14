@@ -1,0 +1,55 @@
+template:          "tpl/anipulse"
+long_name:         "R-Plasma"
+short_name:        "RPLASMA"
+notes:             "R-Plasma"
+max_velocity:      9.0
+thrust:            0.2
+initial_velocity:  7.0
+animation:
+	sprite:  "dev/rplasma"
+	frames:  {begin: 0.0, end: 8.004}
+	speed:   0.133
+	first:   {begin: 0.0, end: 8.0}
+target:  {radar: true}
+expire:
+	after:
+		age:  "2s40t"
+create:
+	action:
+		*	type:         "play"
+			reflexive:    true
+			sound:        "dev/rplasma"
+			priority:     3
+			persistence:  "10t"
+			volume:       255
+collide:
+	damage:  200
+	action:
+		*	type:  "group"
+			if:
+				owner:  "different"
+			of:
+				*	type:       "disable"
+					reflexive:  true
+					duration:
+						begin:  "-1.5s"
+						end:    "1.5s"
+				*	type:       "thrust"
+					reflexive:  true
+					relative:   true
+					value:      0.047
+				*	type:       "spin"
+					reflexive:  true
+					value:      {begin: -2.0, end: 2.0}
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/missile-hit"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true
+ai:
+	combat:
+		guided:   true
+		engages:  true
+		evaded:   true
+		skill:    {num: 3, den: 21}

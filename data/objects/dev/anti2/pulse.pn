@@ -1,0 +1,43 @@
+template:      "tpl/anipulse"
+long_name:     "Antimatter Pulse Type II"
+short_name:    "APULSE 2"
+notes:         "Antimatter Pulse Type II"
+max_velocity:  3.0
+animation:
+	sprite:  "dev/anti"
+	scale:   2.0
+	frames:  {begin: 0.0, end: 3.004}
+	speed:   0.04
+	first:   {begin: 0.0, end: 3.0}
+expire:
+	after:
+		age:  "0.5s"
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/anti2/pulse2"
+			count:               {begin: 2, end: 5}
+			relative_velocity:   true
+			relative_direction:  true
+create:
+	action:
+		*	type:         "play"
+			reflexive:    true
+			sound:        "dev/anti"
+			priority:     3
+			persistence:  "10t"
+			volume:       255
+collide:
+	damage:  500
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/large-hit"
+			relative_direction:  true
+		*	type:                "push"
+		*	type:                "disable"
+			duration:
+				begin:  "-0.1s"
+				end:    "0.1s"
+		*	type:       "remove"
+			reflexive:  true

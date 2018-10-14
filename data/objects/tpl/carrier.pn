@@ -1,0 +1,12 @@
+template:           "tpl/capship"
+long_name:          "Carrier"
+short_name:         "CARRIER"
+class:              "carrier"
+build_time:         "30s"
+warp_out_distance:  4743.75
+destroy:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/giant"
+			relative_direction:  true

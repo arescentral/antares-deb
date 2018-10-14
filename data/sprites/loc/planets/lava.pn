@@ -1,0 +1,2 @@
+frames:
+	*	{left: 0, top: 0, right: 64, bottom: 64, cx: 33, cy: 32}

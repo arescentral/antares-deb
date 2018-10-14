@@ -1,0 +1,27 @@
+template:           "ast/regular/big"
+notes:              "Asteroid"
+tags:               {normal: true, asteroid: null}
+max_velocity:       0.5
+initial_velocity:   {begin: 0.5, end: 1.5}
+initial_direction:  {begin: 0, end: 360}
+animation:
+	frames:  {end: 21.004}
+	first:   {end: 20.0}
+target:  {base: true, hide: false}
+destroy:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/asteroid"
+		*	type:                "create"
+			reflexive:           true
+			base:                "ast/otr/medium"
+			count:               3
+			relative_velocity:   true
+			relative_direction:  true
+collide:  {damage: 0, edge: true}
+ai:
+	combat:  {engaged: true}
+	build:   {legacy_non_builder: true}
+portrait:  null
+create:    null

@@ -1,0 +1,28 @@
+defines = -DNDEBUG
+include_dirs = -I../../../libpng-1.6.28 -I../../../src -I../../../include
+cflags = -Os -Wall -Werror
+cflags_c =
+root_out_dir = .
+target_out_dir = obj
+target_output_name = libpng
+
+build obj/libpng-1.6.28/libpng.png.o: cc ../../../libpng-1.6.28/png.c
+build obj/libpng-1.6.28/libpng.pngerror.o: cc ../../../libpng-1.6.28/pngerror.c
+build obj/libpng-1.6.28/libpng.pngget.o: cc ../../../libpng-1.6.28/pngget.c
+build obj/libpng-1.6.28/libpng.pngmem.o: cc ../../../libpng-1.6.28/pngmem.c
+build obj/libpng-1.6.28/libpng.pngpread.o: cc ../../../libpng-1.6.28/pngpread.c
+build obj/libpng-1.6.28/libpng.pngread.o: cc ../../../libpng-1.6.28/pngread.c
+build obj/libpng-1.6.28/libpng.pngrio.o: cc ../../../libpng-1.6.28/pngrio.c
+build obj/libpng-1.6.28/libpng.pngrtran.o: cc ../../../libpng-1.6.28/pngrtran.c
+build obj/libpng-1.6.28/libpng.pngrutil.o: cc ../../../libpng-1.6.28/pngrutil.c
+build obj/libpng-1.6.28/libpng.pngset.o: cc ../../../libpng-1.6.28/pngset.c
+build obj/libpng-1.6.28/libpng.pngtrans.o: cc ../../../libpng-1.6.28/pngtrans.c
+build obj/libpng-1.6.28/libpng.pngwio.o: cc ../../../libpng-1.6.28/pngwio.c
+build obj/libpng-1.6.28/libpng.pngwrite.o: cc ../../../libpng-1.6.28/pngwrite.c
+build obj/libpng-1.6.28/libpng.pngwtran.o: cc ../../../libpng-1.6.28/pngwtran.c
+build obj/libpng-1.6.28/libpng.pngwutil.o: cc ../../../libpng-1.6.28/pngwutil.c
+
+build obj/libpng.a: alink obj/libpng-1.6.28/libpng.png.o obj/libpng-1.6.28/libpng.pngerror.o obj/libpng-1.6.28/libpng.pngget.o obj/libpng-1.6.28/libpng.pngmem.o obj/libpng-1.6.28/libpng.pngpread.o obj/libpng-1.6.28/libpng.pngread.o obj/libpng-1.6.28/libpng.pngrio.o obj/libpng-1.6.28/libpng.pngrtran.o obj/libpng-1.6.28/libpng.pngrutil.o obj/libpng-1.6.28/libpng.pngset.o obj/libpng-1.6.28/libpng.pngtrans.o obj/libpng-1.6.28/libpng.pngwio.o obj/libpng-1.6.28/libpng.pngwrite.o obj/libpng-1.6.28/libpng.pngwtran.o obj/libpng-1.6.28/libpng.pngwutil.o
+  arflags =
+  output_extension = .a
+  output_dir = 

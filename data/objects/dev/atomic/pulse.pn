@@ -1,0 +1,56 @@
+template:          "tpl/anipulse"
+long_name:         "Atomic Pulse"
+short_name:        "ATOMPLSE"
+notes:             "Atomic Pulse"
+health:            5
+mass:              4.0
+thrust:            0.098
+initial_velocity:  2.0
+autotarget:        true
+animation:
+	sprite:  "dev/atomic"
+	frames:  {begin: 0.0, end: 5.004}
+	speed:   0.312
+	first:   {begin: 0.0, end: 5.0}
+target:  {radar: true}
+expire:
+	after:
+		age:  "5s7t"
+create:
+	action:
+		*	type:         "play"
+			reflexive:    true
+			sound:        "dev/atomic"
+			priority:     3
+			persistence:  "20t"
+			volume:       255
+collide:
+	damage:  200
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/large-hit"
+			relative_direction:  true
+		*	type:                "push"
+		*	type:                "disable"
+			duration:
+				begin:  "-0.1s"
+				end:    "0.1s"
+		*	type:       "remove"
+			reflexive:  true
+activate:
+	period:  "0.05s"
+	action:
+		*	type:       "create"
+			reflexive:  true
+			base:       "sfx/sparkle"
+			count:      {begin: 1, end: 3}
+			distance:   16
+			within:     "square"
+ai:
+	combat:
+		hated:    true
+		guided:   true
+		engages:  true
+		evaded:   true
+		skill:    {num: 3, den: 21}

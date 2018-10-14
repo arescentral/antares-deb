@@ -1,0 +1,16 @@
+template:      "tpl/animation"
+health:        1000
+mass:          0.5
+max_velocity:  7.0
+animation:     {layer: 3}
+icon:
+	shape:  "square"
+	size:   1
+expire:
+	after:
+		age:  "40t"
+collide:
+	as:      {subject: true}
+	damage:  100
+ai:
+	escort:  {class: -256}

@@ -1,0 +1,23 @@
+template:    "tpl/device"
+long_name:   "Trazer Cannon"
+short_name:  "TRAZER"
+notes:       "Trazer Cannon"
+device:
+	usage:        {attacking: true, defense: true}
+	direction:    "omni"
+	energy_cost:  50
+	fire_time:    "0.5s"
+	range:        225.0
+	speed:        15.0
+activate:
+	action:
+		*	type:                "play"
+			reflexive:           true
+			sound:               "dev/trazer"
+			priority:            3
+			persistence:         "0.5s"
+			volume:              255
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/trazer/ray"
+			relative_direction:  true

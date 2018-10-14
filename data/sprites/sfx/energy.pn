@@ -1,0 +1,4 @@
+frames:
+	*	{left: 2, top: 0, right: 26, bottom: 21, cx: 12, cy: 11}
+	*	{left: 28, top: 1, right: 48, bottom: 20, cx: 38, cy: 11}
+	*	{left: 52, top: 0, right: 76, bottom: 23, cx: 64, cy: 11}

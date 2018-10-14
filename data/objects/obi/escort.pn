@@ -1,0 +1,44 @@
+template:           "tpl/warship"
+long_name:          "Escort"
+short_name:         "ESCORT"
+notes:              "Escort"
+portrait:           "obi/escort"
+class:              "escort"
+race:               "obi"
+health:             1500
+shield_color:       "white"
+energy:             1500
+price:              7.5
+build_time:         "10s"
+mass:               1.0
+max_velocity:       6.5
+thrust:             0.156
+warp_speed:         40.0
+warp_out_distance:  3120.0
+weapons:
+	pulse:
+		base:  "dev/pp2/gun"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/pk/ish/gun"
+		positions:
+			*	{x: -10.0, y: 0.0}
+			*	{x: 10.0, y: 0.0}
+	special:
+		base:  "dev/stealth/item"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "obi/escort"
+	frames:  {begin: 0, end: 24}
+icon:  {size: 4}
+destroy:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/large"
+			relative_direction:  true
+ai:
+	escort:  {class: 3, power: 1.0}
+	build:   {ratio: 0.75}

@@ -1,0 +1,54 @@
+template:          "tpl/rotpulse"
+long_name:         "C Missile"
+short_name:        "CMISSILE"
+notes:             "Can't target or turn?"
+health:            25
+turn_rate:         0.008
+max_velocity:      9.0
+thrust:            0.2
+initial_velocity:  0.5
+rotation:
+	sprite:  "dev/cm"
+	frames:  {begin: 0, end: 24}
+target:  {radar: true}
+destroy:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/energy"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true
+expire:
+	after:
+		age:  "0.5s"
+	action:
+		*	type:       "morph"
+			reflexive:  true
+			base:       "dev/cm/missile"
+			keep_ammo:  true
+create:
+	action:
+		*	type:         "play"
+			reflexive:    true
+			sound:        "dev/cm"
+			priority:     3
+			persistence:  "0.5s"
+			volume:       255
+collide:
+	as:      {direct: true}
+	damage:  200
+	edge:    true
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/gas"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true
+ai:
+	combat:
+		hated:    true
+		engages:  true
+		evaded:   true
+		skill:    {num: 1, den: 1}

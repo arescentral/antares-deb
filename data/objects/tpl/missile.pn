@@ -1,0 +1,36 @@
+template:          "tpl/rotpulse"
+health:            25
+turn_rate:         1.0
+max_velocity:      9.0
+thrust:            0.2
+initial_velocity:  0.5
+target:            {radar: true}
+destroy:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/energy"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true
+expire:
+	after:
+		age:  "2s40t"
+collide:
+	as:      {direct: true}
+	damage:  200
+	edge:    true
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/gas"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true
+ai:
+	combat:
+		hated:    true
+		guided:   true
+		engages:  true
+		evaded:   true
+		skill:    {num: 3, den: 21}

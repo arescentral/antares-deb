@@ -1,0 +1,23 @@
+template:    "tpl/gun"
+long_name:   "C-Form Cannon"
+short_name:  "CFORMCNN"
+notes:       "Charged Form Cannon"
+device:
+	fire_time:     "10t"
+	ammo:          150
+	range:         900.0
+	speed:         15.0
+	restock_cost:  30
+activate:
+	action:
+		*	type:                "play"
+			reflexive:           true
+			sound:               "dev/cform"
+			priority:            3
+			persistence:         "10t"
+			volume:              255
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/cform/pulse"
+			relative_velocity:   true
+			relative_direction:  true

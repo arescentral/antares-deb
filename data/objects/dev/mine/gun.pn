@@ -1,0 +1,21 @@
+template:    "tpl/gun"
+long_name:   "Lightwave Cannon"
+short_name:  "L PULSE"
+notes:       "Lightwave Cannon"
+device:
+	fire_time:  "8t"
+	range:      180.0
+	speed:      9.0
+activate:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/mine/pulse"
+			relative_velocity:   true
+			relative_direction:  true
+		*	type:                "play"
+			reflexive:           true
+			sound:               "dev/mine"
+			priority:            3
+			persistence:         "5t"
+			volume:              255

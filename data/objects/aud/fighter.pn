@@ -1,0 +1,14 @@
+template:      "tpl/fighter"
+notes:         "Fighter"
+portrait:      "aud/fighter"
+race:          "aud"
+health:        600
+shield_color:  {indigo: 240}
+weapons:
+	beam:
+		base:  "dev/asb/gun"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "aud/fighter"
+	frames:  {begin: 0, end: 24}

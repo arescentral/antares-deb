@@ -1,0 +1,16 @@
+template:    "ast/regular/medium"
+long_name:   "Astroid Fragment"
+short_name:  "ASTRFRGM"
+notes:       "Astroid Fragment"
+destroy:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/small"
+		*	type:                "create"
+			reflexive:           true
+			base:                "ast/otr/small"
+			count:               3
+			relative_velocity:   true
+			relative_direction:  true
+collide:  {edge: true}

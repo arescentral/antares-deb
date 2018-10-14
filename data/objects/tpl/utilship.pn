@@ -1,0 +1,6 @@
+template:  "tpl/ship"
+icon:
+	shape:  "plus"
+	size:   4
+ai:
+	build:  {needs_escort: true}

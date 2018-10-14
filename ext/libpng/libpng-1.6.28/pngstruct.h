@@ -36,7 +36,7 @@
 /* zlib.h has mediocre z_const use before 1.2.6, this stuff is for compatibility
  * with older builds.
  */
-#if ZLIB_VERNUM < 0x1260
+#if PNG_ZLIB_VERNUM < 0x1260
 #  define PNGZ_MSG_CAST(s) png_constcast(char*,s)
 #  define PNGZ_INPUT_CAST(b) png_constcast(png_bytep,b)
 #else
@@ -263,7 +263,7 @@ struct png_struct_def
                               /* pixel depth used for the row buffers */
    png_byte transformed_pixel_depth;
                               /* pixel depth after read/write transforms */
-#if ZLIB_VERNUM >= 0x1240
+#if PNG_ZLIB_VERNUM >= 0x1240
    png_byte zstream_start;    /* at start of an input zlib stream */
 #endif /* Zlib >= 1.2.4 */
 #if defined(PNG_READ_FILLER_SUPPORTED) || defined(PNG_WRITE_FILLER_SUPPORTED)

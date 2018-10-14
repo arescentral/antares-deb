@@ -1,8 +1,8 @@
 declare_args() {
-  if (target_os == "linux" && rebase_path(".", "//") != ".") {
-    libpng = "system"
-  } else {
+  if (target_os == "mac") {
     libpng = "bundled"
+  } else {
+    libpng = "system"
   }
 }
 assert(libpng == "system" || libpng == "bundled")
@@ -13,27 +13,18 @@ if (libpng == "bundled") {
       "-Wall",
       "-Werror",
     ]
-    include_dirs = [ "libpng-1.6.28" ]
-
-    if (target_os == "mac") {
-      include_dirs += [ "src/darwin" ]
-    } else if (target_os == "linux") {
-      include_dirs += [ "src/mac" ]
-    }
+    include_dirs = [
+      "libpng-1.6.28",
+      "src",
+    ]
   }
 
   config("libpng_public") {
-    include_dirs = [ "include/all" ]
+    include_dirs = [ "include" ]
     libs = [
       "-lz",
       "-lm",
     ]
-
-    if (target_os == "mac") {
-      include_dirs += [ "include/darwin" ]
-    } else if (target_os == "linux") {
-      include_dirs += [ "include/linux" ]
-    }
   }
 
   static_library("libpng") {

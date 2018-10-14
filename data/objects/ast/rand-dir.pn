@@ -1,0 +1,5 @@
+template:           "ast/regular/big"
+short_name:         "Asteroid"
+notes:              "Asteroid (random direction)"
+initial_direction:  {begin: -45, end: 45}
+portrait:           null

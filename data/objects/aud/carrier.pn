@@ -1,0 +1,31 @@
+template:           "tpl/carrier"
+short_name:         "Carrier"
+notes:              "Carrier"
+portrait:           "aud/carrier"
+race:               "aud"
+health:             7500
+shield_color:       {indigo: 240}
+energy:             6500
+mass:               2.5
+max_velocity:       4.0
+thrust:             0.02
+warp_speed:         50.0
+warp_out_distance:  7280.2734
+weapons:
+	pulse:
+		base:  "dev/amissile/launcher"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/trazer/gun"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	special:
+		base:  "dev/bay/aud"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "aud/carrier"
+	frames:  {begin: 0, end: 24}
+ai:
+	escort:  {power: 4.5}

@@ -1,0 +1,22 @@
+template:    "tpl/gun"
+long_name:   "Laser Cannon"
+short_name:  "LASER"
+notes:       "Laser Cannon"
+device:
+	energy_cost:  10
+	fire_time:    "20t"
+	range:        225.0
+	speed:        15.0
+activate:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/laser/gun-bolt"
+			relative_velocity:   true
+			relative_direction:  true
+		*	type:                "play"
+			reflexive:           true
+			sound:               "dev/laser/gun"
+			priority:            3
+			persistence:         "10t"
+			volume:              255

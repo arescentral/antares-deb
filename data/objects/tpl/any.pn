@@ -1,0 +1,44 @@
+long_name:          "Untitled"
+short_name:         "UNTITLED"
+notes:              "Untitled Object"
+tags:               {normal: true, normal-attacker: true}
+health:             0
+energy:             0
+price:              0.0
+build_time:         "0s"
+occupy_count:       0
+mass:               0.0
+turn_rate:          0.0
+max_velocity:       0.0
+thrust:             0.0
+initial_direction:  0
+autotarget:         false
+warp_speed:         0.0
+warp_out_distance:  0
+target:             {base: false, hide: false, radar: false, order: false, select: false, lock: false}
+destroy:            {die: true, neutralize: false, release_energy: false}
+expire:
+	die:    true
+	after:  {animation: false}
+collide:
+	as:      {subject: false, direct: false}
+	damage:  0
+	solid:   false
+	edge:    false
+arrive:  {distance: 223.608}
+ai:
+	combat:
+		hated:    false
+		guided:   false
+		engages:  false
+		engaged:  false
+		evades:   false
+		evaded:   false
+		skill:    {num: 0, den: 0}
+	target:
+		prefer:
+			owner:  "any"
+		force:
+			owner:  "any"
+	escort:  {class: 0, power: 0.0, need: 0.0}
+	build:   {ratio: 0.0, needs_escort: false, legacy_non_builder: false}

@@ -1,0 +1,28 @@
+template:           "tpl/anipulse"
+long_name:          "Protopulse"
+short_name:         "PROPULS"
+notes:              "Protopulse"
+max_velocity:       13.0
+initial_direction:  {begin: -15, end: 15}
+autotarget:         true
+animation:
+	sprite:  "dev/pp"
+	frames:  {begin: 0.0, end: 5.004}
+	speed:   0.055
+	first:   {begin: 0.0, end: 5.0}
+create:
+	action:
+		*	type:         "play"
+			reflexive:    true
+			sound:        "dev/pp"
+			priority:     3
+			persistence:  "10t"
+			volume:       255
+collide:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/missile-hit"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true

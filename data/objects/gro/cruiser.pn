@@ -1,0 +1,17 @@
+template:           "tpl/cruiser"
+long_name:          "Light Cruiser"
+short_name:         "LGHTCRSR"
+notes:              "Light Cruiser, Grolk"
+race:               "gro"
+shield_color:       "white"
+thrust:             0.027
+warp_speed:         0.0
+warp_out_distance:  0
+weapons:
+	pulse:
+		base:  "dev/photo/light"
+		positions:
+			*	{x: 0.0, y: -14.0}
+rotation:
+	sprite:  "gro/cruiser"
+	frames:  {begin: 0, end: 24}

@@ -1,0 +1,23 @@
+template:           "tpl/warship"
+long_name:          "Heavy Cruiser"
+short_name:         "HVCRUISR"
+class:              "hvc"
+health:             1000
+energy:             1000
+price:              7.5
+build_time:         "7.5s"
+mass:               1.0
+max_velocity:       5.0
+thrust:             0.156
+warp_speed:         40.0
+warp_out_distance:  3675.0
+icon:               {size: 4}
+destroy:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/large"
+			relative_direction:  true
+ai:
+	escort:  {class: 3, power: 1.0}
+	build:   {ratio: 0.797}

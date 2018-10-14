@@ -1,0 +1,21 @@
+template:      "tpl/defdrone"
+notes:         "Defense Drone"
+portrait:      "can/defdrone"
+race:          "can"
+shield_color:  {gold: 240}
+weapons:
+	pulse:
+		base:  "dev/anti1/gun"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/pk/ish/rapid"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "can/defdrone"
+	frames:  {begin: 0, end: 24}
+ai:
+	target:
+		force:
+			owner:  "same"

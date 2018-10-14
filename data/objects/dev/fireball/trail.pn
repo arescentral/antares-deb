@@ -1,0 +1,22 @@
+template:      "tpl/anipulse"
+long_name:     "Fireball Trail"
+short_name:    "FIRETRL"
+notes:         "Fireball Trail"
+mass:          0.0
+max_velocity:  0.0
+animation:
+	sprite:  "dev/fireball"
+	frames:  {begin: 0.0, end: 4.004}
+	speed:   0.312
+expire:
+	after:  {animation: true, age: null}
+collide:
+	damage:  50
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/energy"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true
+icon:  null

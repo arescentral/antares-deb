@@ -1,0 +1,11 @@
+template:  "tpl/animation"
+icon:
+	shape:  "square"
+	size:   1
+target:  {radar: true}
+collide:
+	as:     {subject: true, direct: true}
+	solid:  true
+	edge:   true
+ai:
+	escort:  {class: -256}

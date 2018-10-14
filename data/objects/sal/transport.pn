@@ -1,0 +1,16 @@
+template:      "tpl/transport"
+notes:         "Transport"
+portrait:      "sal/transport"
+race:          "sal"
+shield_color:  {gold: 240}
+energy:        800
+weapons:
+	special:
+		base:  "dev/stealth/item"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "sal/transport"
+	frames:  {begin: 0, end: 24}
+ai:
+	escort:  {power: 0.15}

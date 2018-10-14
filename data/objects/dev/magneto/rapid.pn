@@ -1,0 +1,23 @@
+template:    "tpl/gun"
+long_name:   "Rapid Magneto"
+short_name:  "MGNTOPLS"
+notes:       "Rapid Magneto"
+device:
+	fire_time:     "0.1s"
+	ammo:          500
+	range:         300.0
+	speed:         10.2
+	restock_cost:  30
+activate:
+	action:
+		*	type:                "play"
+			reflexive:           true
+			sound:               "dev/magneto"
+			priority:            3
+			persistence:         "10t"
+			volume:              255
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/magneto/pulse"
+			relative_velocity:   true
+			relative_direction:  true

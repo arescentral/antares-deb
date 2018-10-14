@@ -1,0 +1,22 @@
+template:    "tpl/gun"
+long_name:   "Quasimatter Gun"
+short_name:  "QUASMTTR"
+notes:       "Quasimatter Gun"
+device:
+	fire_time:     "10t"
+	ammo:          150
+	range:         900.0
+	speed:         15.0
+	restock_cost:  30
+activate:
+	action:
+		*	type:                "play"
+			reflexive:           true
+			sound:               "dev/quasi/create"
+			priority:            3
+			persistence:         "10t"
+			volume:              255
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/quasi/pulse"
+			relative_direction:  true

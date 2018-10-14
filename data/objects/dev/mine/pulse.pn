@@ -1,0 +1,28 @@
+template:           "tpl/anipulse"
+long_name:          "Lightwave Pulse"
+short_name:         "L PULSE"
+notes:              "Lightwave Pulse"
+mass:               0.02
+max_velocity:       13.0
+thrust:             0.098
+initial_velocity:   9.0
+initial_direction:  {begin: -3, end: 3}
+animation:
+	sprite:  "dev/atomic"
+	frames:  {begin: 0.0, end: 5.004}
+	speed:   0.156
+	first:   {begin: 0.0, end: 5.0}
+expire:
+	after:
+		age:  "20t"
+collide:
+	damage:  50
+	action:
+		*	type:                "slow"
+			value:               0.953
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/missile-hit"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true

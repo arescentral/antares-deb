@@ -1,0 +1,37 @@
+template:          "tpl/bolt"
+long_name:         "Newo Beam"
+short_name:        "NEWOBEAM"
+notes:             "Newo Beam"
+max_velocity:      20.0
+thrust:            0.45
+initial_velocity:  10.0
+bolt:
+	color:  {r: 127, g: 127, b: 255}
+expire:
+	after:
+		age:  "0.5s"
+collide:
+	damage:  80
+	action:
+		*	type:  "group"
+			if:
+				owner:  "different"
+			of:
+				*	type:       "disable"
+					reflexive:  true
+					duration:
+						begin:  "-1.5s"
+						end:    "1.5s"
+				*	type:       "thrust"
+					reflexive:  true
+					relative:   true
+					value:      0.047
+				*	type:       "spin"
+					reflexive:  true
+					value:      {begin: -2.0, end: 2.0}
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/missile-hit"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true

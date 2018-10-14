@@ -73,7 +73,7 @@
 /* zlib.h has mediocre z_const use before 1.2.6, this stuff is for compatibility
  * with older builds.
  */
-#if ZLIB_VERNUM < 0x1260
+#if PNG_ZLIB_VERNUM < 0x1260
 #  define PNGZ_MSG_CAST(s) constcast(char*,s)
 #  define PNGZ_INPUT_CAST(b) constcast(png_bytep,b)
 #else
@@ -85,7 +85,7 @@
 #  error "pngfix not supported in this libpng version"
 #endif
 
-#if ZLIB_VERNUM >= 0x1240
+#if PNG_ZLIB_VERNUM >= 0x1240
 
 /* Copied from pngpriv.h */
 #ifdef __cplusplus
@@ -4019,16 +4019,16 @@ main(int argc, const char **argv)
    return global_end(&global);
 }
 
-#else /* ZLIB_VERNUM < 0x1240 */
+#else /* PNG_ZLIB_VERNUM < 0x1240 */
 int
 main(void)
 {
    fprintf(stderr,
       "pngfix needs libpng with a zlib >=1.2.4 (not 0x%x)\n",
-      ZLIB_VERNUM);
+      PNG_ZLIB_VERNUM);
    return 77;
 }
-#endif /* ZLIB_VERNUM */
+#endif /* PNG_ZLIB_VERNUM */
 
 #else /* No read support */
 

@@ -1,0 +1,11 @@
+template:      "tpl/transport"
+notes:         "Transport"
+race:          "aud"
+shield_color:  {gold: 240}
+energy:        800
+rotation:
+	sprite:  "aud/transport"
+	frames:  {begin: 0, end: 24}
+target:  {hide: true}
+ai:
+	escort:  {power: 0.2}

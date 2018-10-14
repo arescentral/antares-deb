@@ -1,0 +1,9 @@
+template:           "tpl/scenery"
+long_name:          "Enmy Object Shoot"
+short_name:         "ENOBJSHT"
+notes:              "Gaitori"
+health:             1000
+initial_direction:  {begin: 0, end: 360}
+weapons:
+	special:
+		base:  "gai/etc/spawner/item"

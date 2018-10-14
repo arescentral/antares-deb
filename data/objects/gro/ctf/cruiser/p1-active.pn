@@ -1,0 +1,46 @@
+template:           "tpl/cruiser"
+notes:              "Cruiser, Grolk for CTF, P1"
+class:              "201"
+race:               "gro"
+shield_color:       "white"
+thrust:             0.027
+warp_speed:         0.0
+warp_out_distance:  0
+weapons:
+	pulse:
+		base:  "dev/magneto/gun"
+		positions:
+			*	{x: -16.0, y: -7.0}
+			*	{x: 16.0, y: -7.0}
+	beam:
+		base:  "dev/laser/gun"
+		positions:
+			*	{x: -3.0, y: -14.0}
+			*	{x: 3.0, y: -14.0}
+rotation:
+	sprite:  "gro/ctf/cruiser"
+	frames:  {begin: 0, end: 24}
+destroy:
+	die:  false
+	action:
+		*	type:         "play"
+			reflexive:    true
+			sound:        "sfx/pop"
+			priority:     3
+			persistence:  "10t"
+			volume:       255
+		*	type:         "move"
+			reflexive:    true
+			override:
+				direct:  {initial: 3}
+			origin:     "direct"
+			distance:   600
+			within:     "square"
+		*	type:       "heal"
+			reflexive:  true
+			value:      1000
+		*	type:       "stop"
+			reflexive:  true
+		*	type:       "morph"
+			reflexive:  true
+			base:       "gro/ctf/cruiser/p1-inactive"

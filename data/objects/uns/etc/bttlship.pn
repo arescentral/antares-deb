@@ -1,0 +1,38 @@
+template:           "tpl/capship"
+long_name:          "Battleship"
+short_name:         "BTTLSHIP"
+notes:              "Battleship"
+class:              "550"
+race:               "uns"
+health:             6500
+shield_color:       "white"
+energy:             6500
+price:              30.0
+build_time:         "50s"
+mass:               2.5
+max_velocity:       6.0
+thrust:             0.08
+initial_velocity:   0.0
+initial_direction:  0
+warp_out_distance:  3120.0
+weapons:
+	pulse:
+		base:  "dev/pp/twin"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/cm/launcher"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "uns/etc/bttlship"
+	frames:  {begin: 0, end: 24}
+icon:  {size: 9}
+destroy:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/giant"
+			relative_direction:  true
+ai:
+	escort:  {power: 4.5}

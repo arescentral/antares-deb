@@ -1,0 +1,11 @@
+template:      "tpl/transport"
+notes:         "Transport"
+portrait:      "can/transport"
+race:          "can"
+shield_color:  {gold: 240}
+energy:        800
+rotation:
+	sprite:  "can/transport"
+	frames:  {begin: 0, end: 24}
+ai:
+	escort:  {power: 0.15}

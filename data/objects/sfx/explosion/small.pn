@@ -1,0 +1,26 @@
+template:          "tpl/effect"
+long_name:         "Small Destruction Explosion"
+short_name:        "EXPLSN"
+notes:             "Small Destruction Explosion"
+health:            1000
+max_velocity:      20.0
+initial_velocity:  0.0
+animation:
+	sprite:  "sfx/explosion/energy"
+	scale:   0.5
+	frames:  {begin: 0.0, end: 17.004}
+	speed:   0.156
+icon:
+	shape:  "square"
+	size:   2
+expire:
+	after:  {animation: true}
+create:
+	action:
+		*	type:         "play"
+			reflexive:    true
+			sound:        "sfx/explosion/small"
+			priority:     3
+			persistence:  "20t"
+			volume:       255
+collide:  {damage: 100}
