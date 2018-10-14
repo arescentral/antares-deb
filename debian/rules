@@ -7,12 +7,10 @@ export DH_VERBOSE=1
 	dh $@
 
 override_dh_auto_configure:
-	build/lib/scripts/download-gn.py
-	build/lib/scripts/download-ninja.py
 	./configure --prefix=/usr
 
 override_dh_auto_build:
-	build/lib/scripts/ninja -C out/cur
+	make
 
 override_dh_auto_install:
 	make DESTDIR=debian/tmp install-bin install-data

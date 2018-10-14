@@ -1,29 +1,32 @@
 Source: antares
 Section: games
 Priority: optional
-Maintainer: Chris Pickel <sfiera@sfzmail.com>
+Maintainer: Chris Pickel <sfiera@twotaled.com>
 Build-Depends:
+ ca-certificates,
+ clang,
  debhelper (>=9),
- libpng16-dev,
- libzip-dev,
- zlib1g-dev,
- libopenal-dev,
- libmodplug-dev,
- libsndfile-dev,
- libneon27-dev,
+ libc++-dev,
+ libc++abi-dev,
+ libgl1-mesa-dev,
  libglfw3-dev,
+ libglu1-mesa-dev,
+ gir1.2-gtk-3.0,
+ libmodplug-dev,
+ libneon27-dev,
+ libopenal-dev,
+ libpng16-dev,
+ libsndfile-dev,
  libstdc++-dev,
  libx11-dev,
- libgl1-mesa-dev,
- libglu1-mesa-dev,
  libxcursor-dev,
  libxinerama-dev,
  libxrandr-dev,
  libxxf86vm-dev,
+ libzip-dev,
  python,
- ca-certificates,
- ninja-build,
- clang
+ python-gi,
+ zlib1g-dev
 Standards-Version: 3.9.6
 Homepage: http://arescentral.org/antares
 Vcs-Git: https://github.com/arescentral/antares.git

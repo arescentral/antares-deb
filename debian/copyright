@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: antares
-Upstream-Contact: Chris Pickel <sfiera@sfzmail.com>
+Upstream-Contact: Chris Pickel <sfiera@twotaled.com>
 Source: https://github.com/arescentral/antares
 
 Files: *
