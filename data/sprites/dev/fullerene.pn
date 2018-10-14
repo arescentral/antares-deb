@@ -1,0 +1,9 @@
+frames:
+	*	{left: 3, top: 7, right: 27, bottom: 27, cx: 14, cy: 16}
+	*	{left: 31, top: 0, right: 59, bottom: 29, cx: 45, cy: 16}
+	*	{left: 63, top: 4, right: 91, bottom: 27, cx: 76, cy: 16}
+	*	{left: 98, top: 3, right: 122, bottom: 25, cx: 107, cy: 16}
+	*	{left: 3, top: 36, right: 31, bottom: 62, cx: 14, cy: 47}
+	*	{left: 33, top: 35, right: 57, bottom: 61, cx: 45, cy: 47}
+	*	{left: 62, top: 36, right: 90, bottom: 56, cx: 76, cy: 47}
+	*	{left: 95, top: 36, right: 123, bottom: 60, cx: 107, cy: 47}

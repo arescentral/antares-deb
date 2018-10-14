@@ -1,0 +1,21 @@
+template:      "tpl/aslttran"
+notes:         "Gaitori Assault Transport"
+race:          "gai"
+shield_color:  {gold: 240}
+weapons:
+	pulse:
+		base:  "dev/cm/five"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/conc/gun"
+		positions:
+			*	{x: -8.0, y: 0.0}
+			*	{x: 8.0, y: 0.0}
+	special:
+		base:  "dev/assault/gai"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "gai/aslttran"
+	frames:  {begin: 0, end: 24}

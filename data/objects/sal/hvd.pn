@@ -1,0 +1,22 @@
+template:      "tpl/hvd"
+notes:         "Salrilian Heavy Destroyer"
+race:          "sal"
+shield_color:  "white"
+weapons:
+	pulse:
+		base:  "dev/chronon/gun"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/pk/sal/gun"
+		positions:
+			*	{x: -5.0, y: 0.0}
+			*	{x: 0.0, y: 0.0}
+			*	{x: 5.0, y: 0.0}
+	special:
+		base:  "dev/stealth/item"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "sal/hvd"
+	frames:  {begin: 0, end: 24}

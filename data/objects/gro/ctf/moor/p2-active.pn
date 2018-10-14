@@ -1,0 +1,22 @@
+template:      "tpl/structure"
+long_name:     "Tractor Moor"
+short_name:    "MOOR 2 Y"
+notes:         "Moor, for CTF, P2 Active"
+shield_color:  {red: 240}
+animation:
+	sprite:  "gro/ctf/moor"
+	frames:  {begin: 0.0, end: 11.004}
+	speed:   0.156
+	first:   {begin: 0.0, end: 11.0}
+icon:
+	shape:  "plus"
+	size:   3
+destroy:
+	die:  false
+	action:
+		*	type:       "heal"
+			reflexive:  true
+			value:      1000
+		*	type:       "morph"
+			reflexive:  true
+			base:       "gro/ctf/moor/p2-inactive"

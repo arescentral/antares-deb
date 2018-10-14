@@ -1,0 +1,52 @@
+template:          "tpl/utilship"
+long_name:         "Cargo Ship"
+short_name:        "CARGO"
+notes:             "Cargo Ship"
+portrait:          "ish/etc/cargo"
+class:             "811"
+race:              "ish"
+health:            250
+shield_color:      "white"
+energy:            1000
+price:             4.0
+build_time:        "11s"
+mass:              1.098
+max_velocity:      3.0
+thrust:            0.156
+initial_velocity:  0.0
+rotation:
+	sprite:  "ish/etc/cargo"
+	frames:  {begin: 0, end: 24}
+icon:  {size: 6}
+destroy:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/large"
+			relative_direction:  true
+create:
+	action:
+		*	type:       "create"
+			reflexive:  true
+			base:       "sfx/jump/small"
+arrive:
+	distance:  141.423
+	action:
+		*	type:  "group"
+			if:
+				tags:  {rendezvous: true}
+			of:
+				*	type:       "score"
+					counter:    {player: 0, which: 0}
+					value:      1
+				*	type:       "remove"
+					reflexive:  true
+		*	type:  "check"
+ai:
+	combat:  {engages: false, evaded: false}
+	target:
+		prefer:
+			base:   true
+			owner:  "different"
+	escort:  {class: 9, power: 0.098, need: 2.0}
+	build:   {ratio: 0.7, needs_escort: false}

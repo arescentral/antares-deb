@@ -1,0 +1,3 @@
+template:   "tpl/animation"
+animation:  {layer: 1}
+target:     {select: true}

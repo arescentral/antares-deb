@@ -1,0 +1,17 @@
+template:           "tpl/scenery"
+long_name:          "Enemy Shooter Obj"
+short_name:         "ENSHTOBJ"
+notes:              "Enemy Shooter Obj"
+health:             1000
+initial_direction:  {begin: 0, end: 360}
+weapons:
+	special:
+		base:  "can/etc/spawner/item"
+activate:
+	period:
+		begin:  "4.25s"
+		end:    "8.5s"
+	action:
+		*	type:       "fire"
+			reflexive:  true
+			which:      "special"

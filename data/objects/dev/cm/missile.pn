@@ -1,0 +1,18 @@
+template:    "tpl/missile"
+long_name:   "C Missile"
+short_name:  "CMISSILE"
+notes:       "C Missile"
+rotation:
+	sprite:  "dev/cm"
+	frames:  {begin: 0, end: 24}
+create:
+	action:
+		*	type:         "play"
+			reflexive:    true
+			sound:        "dev/cm"
+			priority:     3
+			persistence:  "0.5s"
+			volume:       255
+ai:
+	combat:
+		skill:  {num: 1, den: 1}

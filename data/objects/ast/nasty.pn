@@ -1,0 +1,34 @@
+template:          "tpl/hazard"
+long_name:         "Nastiroid"
+short_name:        "NASTROID"
+notes:             "Nastiroid"
+health:            500000
+energy:            2000
+mass:              10.0
+max_velocity:      7.0
+initial_velocity:  {begin: 3.0, end: 4.0}
+animation:
+	sprite:     "ast/nasty"
+	scale:      2.0
+	frames:     {begin: 0.0, end: 20.004}
+	direction:  "?"
+	speed:      0.117
+	first:      {begin: 0.0, end: 19.0}
+icon:
+	shape:  "diamond"
+	size:   8
+destroy:
+	release_energy:  true
+	action:
+		*	type:       "create"
+			reflexive:  true
+			base:       "sfx/explosion/giant"
+collide:
+	damage:  40000
+	edge:    false
+	action:
+		*	type:       "destroy"
+			reflexive:  true
+ai:
+	combat:  {hated: true, evaded: true}
+	escort:  {need: 1.0}

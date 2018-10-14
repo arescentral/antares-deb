@@ -1,0 +1,22 @@
+template:      "tpl/carrier"
+notes:         "Carrier"
+portrait:      "can/carrier"
+race:          "can"
+shield_color:  {gold: 240}
+build_time:    "50s"
+weapons:
+	pulse:
+		base:  "dev/cm/launcher"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/cluster/turret"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	special:
+		base:  "dev/bay/can"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "can/carrier"
+	frames:  {begin: 0, end: 24}

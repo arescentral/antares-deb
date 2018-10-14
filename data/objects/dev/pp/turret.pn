@@ -1,0 +1,16 @@
+template:    "tpl/turret"
+long_name:   "ProtoPulse Cannon"
+short_name:  "PULSCANN"
+notes:       "ProtoPulse Cannon"
+device:
+	fire_time:  "25t"
+	ammo:       100
+	range:      520.0
+	speed:      15.0
+activate:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/pp/pulse"
+			relative_velocity:   true
+			relative_direction:  true

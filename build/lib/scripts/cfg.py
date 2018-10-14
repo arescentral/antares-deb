@@ -12,6 +12,7 @@ import platform
 import subprocess
 import sys
 
+
 def host_os():
     if sys.platform == "darwin":
         return "mac"
@@ -45,9 +46,11 @@ def step(message):
     sys.stdout.write(message + "...")
     sys.stdout.flush()
     padding = ((27 - len(message)) * " ")
+
     def msg(failure, color=None):
         print(padding + tint(failure, color))
         msg.called = True
+
     msg.called = False
     yield msg
     if not msg.called:
@@ -64,7 +67,8 @@ def check_bin(cmdline, what=None, input=None):
             if not isinstance(input, bytes):
                 input = input.encode("utf-8")
         try:
-            p = subprocess.Popen(cmdline, stdin=stdin, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            p = subprocess.Popen(
+                cmdline, stdin=stdin, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             p.communicate(input)
             if p.returncode == 0:
                 return True
@@ -101,7 +105,7 @@ def gn(**kwds):
     out = os.path.join("out", target_os, mode)
 
     gn_args = " ".join('%s = %s' % (k, json.dumps(v)) for k, v in kwds.items())
-    cmd = ["build/lib/scripts/gn", "gen", "-q", out, "--args=%s" % gn_args]
+    cmd = ["build/lib/bin/gn", "gen", "-q", out, "--args=%s" % gn_args]
     with step("generating build.ninja") as msg:
         try:
             os.makedirs("out")

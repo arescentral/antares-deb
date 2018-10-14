@@ -1,0 +1,6 @@
+template:  "tpl/any"
+rotation:
+	sprite:  "sfx/invisible"
+	layer:   2
+	scale:   1.0
+	frames:  0

@@ -1,0 +1,21 @@
+ninja_required_version = 1.7.2
+
+rule gn
+  command = ../../../build/lib/bin/mac/gn --root=../../.. -q gen .
+  description = Regenerating ninja files
+
+build build.ninja: gn
+  generator = 1
+  depfile = build.ninja.d
+
+subninja toolchain.ninja
+
+build libpng: phony obj/libpng.a
+build $:libpng: phony obj/libpng.a
+build $:pngtest: phony ./pngtest
+
+build all: phony $
+    obj/libpng.a $
+    ./pngtest
+
+default all

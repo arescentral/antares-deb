@@ -1,0 +1,25 @@
+template:  "uns/transport"
+notes:     "Transport -- special, for chapter 19"
+class:     "1801"
+expire:
+	action:
+		*	type:       "score"
+			reflexive:  true
+			counter:    {player: 0, which: 0}
+			value:      1
+		*	type:       "check"
+arrive:
+	action:
+		*	type:  "group"
+			if:
+				tags:  {planet: true}
+			of:
+				*	type:         "land"
+					reflexive:    true
+					speed:        32
+				*	type:         "play"
+					absolute:     true
+					sound:        "tpl/transport/land"
+					priority:     5
+					persistence:  "20t"
+					volume:       255

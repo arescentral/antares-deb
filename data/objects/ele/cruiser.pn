@@ -1,0 +1,24 @@
+template:           "tpl/cruiser"
+notes:              "Cruiser"
+portrait:           "ele/cruiser"
+race:               "ele"
+health:             1500
+shield_color:       {sky-blue: 240}
+turn_rate:          2.5
+max_velocity:       7.5
+initial_velocity:   5.0
+warp_speed:         50.0
+warp_out_distance:  5742.1876
+weapons:
+	pulse:
+		base:  "dev/onas/gun"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/newo/gun"
+		positions:
+			*	{x: -5.0, y: 0.0}
+			*	{x: 5.0, y: 0.0}
+rotation:
+	sprite:  "ele/cruiser"
+	frames:  {begin: 0, end: 24}

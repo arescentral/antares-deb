@@ -1,0 +1,23 @@
+template:    "tpl/device"
+long_name:   "Launching Bay"
+short_name:  "LANCHBAY"
+notes:       "Launching Bay"
+device:
+	usage:      {attacking: true, defense: true}
+	direction:  "omni"
+	fire_time:  "3s20t"
+	ammo:       10
+	range:      316.229
+	speed:      7.3
+activate:
+	action:
+		*	type:                "play"
+			reflexive:           true
+			sound:               "dev/bay"
+			priority:            3
+			persistence:         "10t"
+			volume:              255
+		*	type:                "create"
+			reflexive:           true
+			base:                "can/fighter"
+			relative_direction:  true

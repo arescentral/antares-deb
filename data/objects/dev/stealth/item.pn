@@ -1,0 +1,13 @@
+template:    "tpl/device"
+long_name:   "Stealth Field"
+short_name:  "STEALTH"
+notes:       "Stealth Field"
+device:
+	usage:         {transportation: true, defense: true}
+	energy_cost:   1
+	fire_time:     "0.15s"
+	restock_cost:  0
+activate:
+	action:
+		*	type:       "cloak"
+			reflexive:  true

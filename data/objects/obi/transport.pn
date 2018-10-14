@@ -1,0 +1,62 @@
+template:      "tpl/utilship"
+long_name:     "Transport"
+short_name:    "TRANSPRT"
+notes:         "Transport"
+tags:          {planet: true, normal: null}
+portrait:      "obi/transport"
+class:         "transport"
+race:          "obi"
+health:        2000
+shield_color:  "white"
+energy:        1000
+price:         4.0
+build_time:    "11s"
+mass:          1.098
+max_velocity:  3.0
+thrust:        0.156
+weapons:
+	beam:
+		base:  "dev/repulser/turret"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "obi/transport"
+	frames:  {begin: 0, end: 24}
+icon:    {size: 5}
+target:  {hide: true}
+destroy:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/large"
+			relative_direction:  true
+expire:
+	action:
+		*	type:  "capture"
+			if:
+				tags:   {planet: true}
+				owner:  "different"
+arrive:
+	action:
+		*	type:  "group"
+			if:
+				tags:   {planet: true}
+				owner:  "different"
+			of:
+				*	type:         "land"
+					reflexive:    true
+					speed:        32
+				*	type:         "play"
+					absolute:     true
+					sound:        "tpl/transport/land"
+					priority:     5
+					persistence:  "20t"
+					volume:       255
+ai:
+	combat:  {engages: false, evaded: false}
+	target:
+		prefer:
+			base:   true
+			owner:  "different"
+	escort:  {class: 9, power: 0.098, need: 2.0}
+	build:   {ratio: 0.7}

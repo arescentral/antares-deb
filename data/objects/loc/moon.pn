@@ -1,0 +1,11 @@
+template:    "tpl/planet"
+long_name:   "Moon"
+short_name:  "MOON"
+notes:       "Moon"
+health:      -1
+energy:      -1
+animation:
+	sprite:  "loc/planets/marslike"
+icon:     {size: 6}
+target:   {radar: false}
+collide:  {damage: 1}

@@ -1,0 +1,24 @@
+template:           "tpl/warship"
+long_name:          "Gunship"
+short_name:         "GUNSHIP"
+class:              "gunship"
+health:             3000
+energy:             2000
+price:              11.0
+build_time:         "10s"
+mass:               1.2
+turn_rate:          1.2
+max_velocity:       4.0
+thrust:             0.04
+warp_speed:         40.0
+warp_out_distance:  3120.0
+icon:               {size: 5}
+destroy:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/giant"
+			relative_direction:  true
+ai:
+	escort:  {class: 5, power: 1.5, need: 1.0}
+	build:   {ratio: 0.348}

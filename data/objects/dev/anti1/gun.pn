@@ -1,0 +1,17 @@
+template:    "tpl/gun"
+long_name:   "Antimatter Pulse Reactor"
+short_name:  "APULSE 1"
+notes:       "Antimatter Pulse Reactor"
+device:
+	fire_time:     "1s"
+	ammo:          50
+	range:         280.0
+	speed:         7.1
+	restock_cost:  24
+activate:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/anti1/pulse"
+			relative_velocity:   true
+			relative_direction:  true

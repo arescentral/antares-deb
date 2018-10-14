@@ -1,0 +1,24 @@
+template:    "tpl/device"
+long_name:   "Retroburst"
+short_name:  "RTROBRST"
+notes:       "Retroburst"
+device:
+	usage:         {defense: true}
+	energy_cost:   10
+	fire_time:     "0.25s"
+	restock_cost:  0
+activate:
+	action:
+		*	type:         "play"
+			reflexive:    true
+			sound:        "zzz/dev/retro"
+			priority:     3
+			persistence:  "14t"
+			volume:       255
+		*	type:         "speed"
+			reflexive:    true
+			value:        -15.0
+		*	type:         "delay"
+			duration:     "7t"
+		*	type:         "stop"
+			reflexive:    true

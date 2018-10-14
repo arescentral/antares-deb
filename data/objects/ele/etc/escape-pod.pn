@@ -1,0 +1,52 @@
+template:           "tpl/hazard"
+long_name:          "Escape Pod"
+short_name:         "ESCPEPOD"
+notes:              "Escape Pod"
+tags:               {energizable: true}
+portrait:           "ele/etc/escape-pod"
+class:              "801"
+race:               "ele"
+health:             250
+shield_color:       "white"
+energy:             1000
+price:              4.0
+build_time:         "11s"
+mass:               0.098
+max_velocity:       1.5
+initial_direction:  {begin: 0, end: 360}
+animation:
+	sprite:  "ele/etc/escape-pod"
+	frames:  {begin: 0.0, end: 14.004}
+	speed:   0.047
+icon:
+	shape:  "plus"
+	size:   3
+target:  {select: true}
+destroy:
+	release_energy:  true
+	action:
+		*	type:       "create"
+			reflexive:  true
+			base:       "sfx/explosion/large"
+		*	type:       "win"
+			reflexive:  true
+			player:     1
+			text:
+				>	One of the escape pods was destroyed.
+collide:
+	action:
+		*	type:         "score"
+			counter:      {player: 0, which: 1}
+			value:        1
+		*	type:         "play"
+			reflexive:    true
+			sound:        "sfx/energy"
+			priority:     3
+			persistence:  "5t"
+			volume:       255
+		*	type:         "remove"
+			reflexive:    true
+		*	type:         "check"
+ai:
+	escort:  {class: 9, need: 2.0}
+	build:   {ratio: 0.7}

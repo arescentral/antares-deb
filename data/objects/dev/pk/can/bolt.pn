@@ -1,0 +1,22 @@
+template:    "tpl/bolt"
+long_name:   "P-K Beam"
+short_name:  "PK BEAM"
+notes:       "P-K Beam"
+bolt:
+	color:  {r: 255, g: 0, b: 0}
+create:
+	action:
+		*	type:         "play"
+			reflexive:    true
+			sound:        "dev/pk/can"
+			priority:     3
+			persistence:  "10t"
+			volume:       255
+collide:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/energy"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true

@@ -1,0 +1,15 @@
+template:      "tpl/fighter"
+notes:         "Fighter"
+portrait:      "uns/fighter"
+race:          "uns"
+shield_color:  "white"
+thrust:        0.04
+weapons:
+	beam:
+		base:  "dev/laser/gun"
+		positions:
+			*	{x: -3.0, y: 0.0}
+			*	{x: 3.0, y: 0.0}
+rotation:
+	sprite:  "uns/fighter"
+	frames:  {begin: 0, end: 24}

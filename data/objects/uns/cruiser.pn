@@ -1,0 +1,21 @@
+template:           "tpl/cruiser"
+notes:              "Cruiser"
+portrait:           "uns/cruiser"
+race:               "uns"
+shield_color:       "white"
+thrust:             0.08
+warp_speed:         20.0
+warp_out_distance:  1059.375
+weapons:
+	pulse:
+		base:  "dev/magneto/gun"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/laser/gun"
+		positions:
+			*	{x: -10.0, y: 0.0}
+			*	{x: 10.0, y: 0.0}
+rotation:
+	sprite:  "uns/cruiser"
+	frames:  {begin: 0, end: 24}

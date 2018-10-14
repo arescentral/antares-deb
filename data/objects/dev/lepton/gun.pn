@@ -1,0 +1,16 @@
+template:    "tpl/gun"
+long_name:   "Lepton Beam Cannon"
+short_name:  "LBEAM 1"
+notes:       "Lepton Beam Cannon"
+device:
+	energy_cost:  10
+	fire_time:    "8t"
+	range:        400.0
+	speed:        21.0
+activate:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/lepton/bolt"
+			relative_velocity:   true
+			relative_direction:  true

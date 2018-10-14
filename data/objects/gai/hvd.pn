@@ -1,0 +1,22 @@
+template:      "tpl/hvd"
+notes:         "Gaitori Heavy Destroyer"
+portrait:      "gai/hvd"
+race:          "gai"
+shield_color:  "white"
+weapons:
+	pulse:
+		base:  "dev/neutron/gun"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/conc/gun"
+		positions:
+			*	{x: -5.0, y: -10.0}
+			*	{x: 5.0, y: -10.0}
+	special:
+		base:  "dev/cm/launcher"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "gai/hvd"
+	frames:  {begin: 0, end: 24}

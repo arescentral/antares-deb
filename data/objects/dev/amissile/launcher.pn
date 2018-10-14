@@ -1,0 +1,23 @@
+template:    "tpl/gun"
+long_name:   "A Missile Launch"
+short_name:  "AMISSILE"
+notes:       "A Missile Launch"
+device:
+	fire_time:     "1s10t"
+	ammo:          150
+	range:         1440.0
+	speed:         9.0
+	restock_cost:  12
+activate:
+	action:
+		*	type:                "play"
+			reflexive:           true
+			sound:               "dev/cm"
+			priority:            3
+			persistence:         "0.25s"
+			volume:              255
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/amissile/missile"
+			relative_velocity:   true
+			relative_direction:  true

@@ -1,0 +1,17 @@
+template:           "zzz/ish/cruiser/active"
+long_name:          "Cruiser Dead"
+notes:              "Practice Inactive"
+tags:               {energizable: null}
+turn_rate:          0.0
+max_velocity:       0.0
+thrust:             0.0
+warp_speed:         0.0
+warp_out_distance:  0
+destroy:            {action: null}
+collide:
+	as:  {subject: false, direct: false}
+ai:
+	combat:  {hated: false, engages: false, engaged: false, evades: false, evaded: false}
+shield_color:      null
+initial_velocity:  null
+weapons:           null

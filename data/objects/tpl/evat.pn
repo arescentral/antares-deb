@@ -1,0 +1,69 @@
+template:           "tpl/rotation"
+long_name:          "EVA Trooper"
+short_name:         "EVAT"
+tags:               {boarder: true, normal-attacker: null}
+class:              "evat"
+health:             10
+energy:             50
+mass:               0.008
+turn_rate:          6.0
+max_velocity:       0.5
+thrust:             0.02
+initial_direction:  {begin: 0, end: 360}
+rotation:           {scale: 0.5}
+icon:
+	shape:  "triangle"
+	size:   1
+target:  {radar: true, order: true, lock: true}
+destroy:
+	release_energy:  true
+	action:
+		*	type:         "play"
+			sound:        "tpl/evat/destroy"
+			priority:     3
+			persistence:  "20t"
+			volume:       255
+		*	type:         "create"
+			reflexive:    true
+			base:         "sfx/explosion/small"
+expire:
+	after:
+		age:  "1m6s40t"
+collide:
+	as:     {subject: true, direct: true}
+	solid:  true
+	edge:   true
+arrive:
+	distance:  70.714
+	action:
+		*	type:  "group"
+			if:
+				tags:   {station: true}
+				owner:  "different"
+			of:
+				*	type:         "remove"
+					reflexive:    true
+				*	type:         "play"
+					absolute:     true
+					sound:        "tpl/evat/board"
+					priority:     4
+					persistence:  "1s"
+					volume:       255
+				*	type:         "occupy"
+					value:        1
+ai:
+	combat:
+		hated:  true
+		engages:
+			if:
+				tags:  {station: true}
+		engaged:  true
+		evades:   true
+		evaded:   true
+		skill:    {num: 3, den: 21}
+	target:
+		prefer:
+			local:  true
+			owner:  "different"
+			tags:   {station: true}
+	escort:  {class: 1, power: 0.5}

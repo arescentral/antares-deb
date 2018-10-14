@@ -1,0 +1,64 @@
+template:      "tpl/drone"
+long_name:     "Zerbilite"
+short_name:    "ZRBILITE"
+notes:         "Zerbilite"
+class:         "1"
+health:        70
+shield_color:  {gold: 240}
+mass:          0.098
+turn_rate:     0.0
+max_velocity:  6.0
+thrust:        0.098
+animation:
+	sprite:  "zrb/base"
+	frames:  {begin: 0.0, end: 4.004}
+	speed:   0.156
+	first:   {begin: 0.0, end: 3.0}
+icon:
+	shape:  "triangle"
+	size:   2
+destroy:
+	action:
+		*	type:         "create"
+			reflexive:    true
+			base:         "sfx/explosion/small"
+		*	type:         "play"
+			reflexive:    true
+			sound:        "zrb/destroy"
+			priority:     3
+			persistence:  "10t"
+			volume:       255
+collide:
+	damage:  20
+	edge:    false
+	action:
+		*	type:  "disable"
+			if:
+				owner:  "different"
+			duration:
+				begin:  "0s"
+				end:    "3s"
+		*	type:         "play"
+			reflexive:    true
+			sound:        "zrb/collide"
+			priority:     3
+			persistence:  "10t"
+			volume:       255
+		*	type:         "age"
+			reflexive:    true
+			value:
+				begin:  "3s"
+				end:    "6s"
+		*	type:       "delay"
+			duration:   "2s"
+		*	type:       "create"
+			reflexive:  true
+			base:       "zrb/spawn"
+			count:      {begin: -1, end: 3}
+			distance:   2
+			within:     "square"
+arrive:  {distance: 0}
+ai:
+	target:
+		prefer:  {local: true}
+	build:  {ratio: 0.75}

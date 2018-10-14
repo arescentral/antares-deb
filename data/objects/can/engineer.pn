@@ -1,0 +1,16 @@
+template:      "tpl/engineer"
+notes:         "Engineer Pod"
+portrait:      "can/engineer"
+race:          "can"
+shield_color:  {gold: 240}
+weapons:
+	beam:
+		base:  "dev/repulser/turret"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "can/engineer"
+	frames:  {begin: 0, end: 24}
+ai:
+	target:
+		prefer:  {base: true}

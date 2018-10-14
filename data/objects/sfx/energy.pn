@@ -1,0 +1,43 @@
+template:           "tpl/anipulse"
+long_name:          "Energy"
+short_name:         "ENERGY"
+notes:              "Energy"
+health:             100
+mass:               0.0
+max_velocity:       2.0
+thrust:             0.5
+initial_velocity:   {begin: 0.0, end: 2.0}
+initial_direction:  {begin: 0, end: 360}
+animation:
+	sprite:  "sfx/energy"
+	frames:  {begin: 0.0, end: 2.004}
+	speed:   0.156
+	first:   {begin: 0.0, end: 2.0}
+target:  {radar: true}
+expire:
+	after:
+		age:
+			begin:  "9s"
+			end:    "10s10t"
+collide:
+	damage:  0
+	action:
+		*	type:  "group"
+			if:
+				tags:  {energizable: true}
+			of:
+				*	type:         "energize"
+					value:        150
+				*	type:         "remove"
+					reflexive:    true
+				*	type:         "play"
+					sound:        "sfx/energy"
+					priority:     3
+					persistence:  "10t"
+					volume:       255
+arrive:  {distance: 4.3}
+ai:
+	combat:
+		engages:  true
+		engaged:  true
+		skill:    {num: 3, den: 21}

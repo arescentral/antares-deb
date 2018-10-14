@@ -1,0 +1,14 @@
+template:    "tpl/ray"
+long_name:   "Trans-Space Bolt"
+short_name:  "TRNSBOLT"
+notes:       "Trans-Space Bolt"
+ray:
+	to:         "coord"
+	hue:        "gold"
+	lightning:  true
+collide:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/energy"
+			relative_direction:  true

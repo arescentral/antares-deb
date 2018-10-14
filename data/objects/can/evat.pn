@@ -1,0 +1,17 @@
+template:      "tpl/evat"
+short_name:    "EVATROOP"
+notes:         "EVA Trooper"
+race:          "can"
+shield_color:  "white"
+price:         3.0
+build_time:    "3s"
+weapons:
+	beam:
+		base:  "dev/pk/ish/hand"
+		positions:
+			*	{x: -3.0, y: 0.0}
+			*	{x: 3.0, y: 0.0}
+rotation:
+	sprite:  "can/evat"
+	frames:  {begin: 0, end: 24}
+target:  {lock: false}

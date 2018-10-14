@@ -1,0 +1,37 @@
+template:           "tpl/capship"
+long_name:          "Battlecruiser"
+short_name:         "BTTLCRSR"
+notes:              "Battlecruiser"
+portrait:           "zzz/obi/bttlcrsr"
+class:              "550"
+race:               "obi"
+health:             6500
+shield_color:       "white"
+energy:             6500
+price:              30.0
+build_time:         "50s"
+mass:               2.5
+max_velocity:       4.0
+thrust:             0.02
+warp_out_distance:  3120.0
+weapons:
+	pulse:
+		base:  "dev/pp/twin"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/zbeam/turret"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "obi/etc/liner"
+	frames:  {begin: 0, end: 24}
+icon:  {size: 7}
+destroy:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/giant"
+			relative_direction:  true
+ai:
+	escort:  {power: 4.5}

@@ -1,0 +1,51 @@
+template:           "tpl/rotation"
+long_name:          "Flak Drone"
+short_name:         "FLCKDRON"
+notes:              "Flak Drone"
+tags:               {flak: true, energizable: true, normal: null}
+portrait:           "loc/flak"
+class:              "9999"
+health:             15000
+shield_color:       {gold: 240}
+energy:             1000
+price:              5.0
+mass:               1.0
+turn_rate:          5.0
+initial_direction:  {begin: 0, end: 360}
+weapons:
+	pulse:
+		base:  "dev/anti1/gun"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/flak/turret"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	special:
+		base:  "dev/cm/launcher"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "loc/flak"
+	frames:  {begin: 0, end: 24}
+icon:
+	shape:  "square"
+	size:   3
+target:  {radar: true, select: true}
+destroy:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/large"
+			relative_direction:  true
+collide:
+	as:    {subject: true, direct: true}
+	edge:  true
+ai:
+	combat:
+		engages:
+			if:
+				tags:  {normal: true}
+		evaded:  true
+		skill:   {num: 3, den: 21}
+	escort:  {class: 9, power: 1.5}

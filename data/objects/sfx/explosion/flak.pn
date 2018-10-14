@@ -1,0 +1,19 @@
+template:    "tpl/effect"
+long_name:   "Flak Explosion"
+short_name:  "FLAKEXP"
+notes:       "Flak Explosion"
+animation:
+	sprite:  "sfx/explosion/flak"
+	scale:   2.0
+	frames:  {begin: 0.0, end: 5.004}
+	speed:   0.47
+expire:
+	after:  {animation: true}
+create:
+	action:
+		*	type:         "play"
+			reflexive:    true
+			sound:        "sfx/explosion/flak"
+			priority:     3
+			persistence:  "20t"
+			volume:       255

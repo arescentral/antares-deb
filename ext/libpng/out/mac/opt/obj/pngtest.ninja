@@ -1,0 +1,15 @@
+defines = -DNDEBUG
+include_dirs = -I../../../include
+cflags = -Os
+cflags_c =
+root_out_dir = .
+target_out_dir = obj
+target_output_name = pngtest
+
+build obj/libpng-1.6.28/pngtest.pngtest.o: cc ../../../libpng-1.6.28/pngtest.c
+
+build ./pngtest: link obj/libpng-1.6.28/pngtest.pngtest.o obj/libpng.a
+  ldflags = -std=c++11 -stdlib=libc++
+  libs = -lz -lm
+  output_extension = 
+  output_dir = 

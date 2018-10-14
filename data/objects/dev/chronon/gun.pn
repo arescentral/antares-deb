@@ -1,0 +1,25 @@
+template:    "tpl/gun"
+long_name:   "Chronon Prtcl Gun"
+short_name:  "CHRNNPRT"
+notes:       "Chronon Particle Gun"
+device:
+	fire_time:     "10t"
+	ammo:          150
+	range:         900.0
+	speed:         15.0
+	restock_cost:  30
+activate:
+	action:
+		*	type:                "play"
+			reflexive:           true
+			sound:               "dev/chronon"
+			priority:            5
+			persistence:         "10t"
+			volume:              255
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/chronon/pulse"
+			relative_velocity:   true
+			relative_direction:  true
+			distance:            8
+			within:              "square"

@@ -1,0 +1,19 @@
+template:      "tpl/gunship"
+notes:         "Gunship"
+portrait:      "ish/gunship"
+race:          "ish"
+shield_color:  "white"
+weapons:
+	pulse:
+		base:  "dev/lepton/gun"
+		positions:
+			*	{x: 15.0, y: 0.0}
+			*	{x: -15.0, y: 0.0}
+	beam:
+		base:  "dev/pk/ish/gun"
+		positions:
+			*	{x: 6.0, y: 0.0}
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "ish/gunship"
+	frames:  {begin: 0, end: 24}

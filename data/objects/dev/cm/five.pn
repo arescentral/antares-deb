@@ -1,0 +1,17 @@
+template:    "tpl/gun"
+long_name:   "C Missiles(5)"
+short_name:  "CMISSILE"
+notes:       "C Missiles(5)"
+device:
+	fire_time:     "2s"
+	ammo:          5
+	range:         1440.0
+	speed:         9.0
+	restock_cost:  64
+activate:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/cm/missile"
+			relative_velocity:   true
+			relative_direction:  true

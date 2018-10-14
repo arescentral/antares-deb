@@ -1,0 +1,18 @@
+template:    "tpl/gun"
+long_name:   "KL Beam Cannon"
+short_name:  "KLBEAM"
+notes:       "Identical to #2, really"
+device:
+	energy_cost:  10
+	fire_time:    "0.2s"
+	range:        225.0
+	speed:        15.0
+activate:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/kl/bolt"
+			relative_velocity:   true
+			relative_direction:  true
+			distance:            4
+			within:              "square"

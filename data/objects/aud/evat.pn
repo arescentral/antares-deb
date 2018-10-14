@@ -1,0 +1,18 @@
+template:      "tpl/evat"
+notes:         "Audemedon Extra-vehicular Assault Trooper"
+race:          "aud"
+health:        100
+shield_color:  {indigo: 240}
+energy:        200
+price:         3.0
+build_time:    "3s"
+weapons:
+	beam:
+		base:  "dev/asb/gun"
+		positions:
+			*	{x: -3.0, y: 0.0}
+			*	{x: 3.0, y: 0.0}
+rotation:
+	sprite:  "aud/evat"
+	frames:  {begin: 0, end: 24}
+target:  {lock: false}

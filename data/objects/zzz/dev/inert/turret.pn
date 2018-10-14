@@ -1,0 +1,22 @@
+template:    "tpl/turret"
+long_name:   "Inert Beam Cannon"
+short_name:  "INRTBEAM"
+notes:       "Inert Beam Cannon"
+device:
+	energy_cost:  10
+	fire_time:    "20t"
+	range:        225.0
+	speed:        15.0
+activate:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "zzz/dev/inert/bolt"
+			relative_velocity:   true
+			relative_direction:  true
+		*	type:                "play"
+			reflexive:           true
+			sound:               "zzz/dev/inert"
+			priority:            3
+			persistence:         "10t"
+			volume:              180

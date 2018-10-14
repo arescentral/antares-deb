@@ -1,0 +1,1 @@
+build.ninja: ../../../BUILD.gn ../../../build/BUILDCONFIG.gn ../../../build/lib/BUILD.gn ../../../build/lib/gcc.gni ../../../build/lib/mac/BUILD.gn ../../../build/lib/mac/version.gni args.gn

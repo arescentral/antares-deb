@@ -1,0 +1,37 @@
+template:      "tpl/aslttran"
+notes:         "Assault Transport"
+portrait:      "sal/aslttran"
+race:          "sal"
+shield_color:  {gold: 240}
+weapons:
+	pulse:
+		base:  "dev/magno/turret"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/pk/sal/gun"
+		positions:
+			*	{x: -8.0, y: 0.0}
+			*	{x: 8.0, y: 0.0}
+	special:
+		base:  "dev/assault/sal"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "sal/aslttran"
+	frames:  {begin: 0, end: 24}
+destroy:
+	action:
+		*	type:       "fire"
+			reflexive:  true
+			if:
+				tags:   {station: true}
+				owner:  "different"
+			which:      "special"
+		*	type:       "create"
+			reflexive:  true
+			base:       "sfx/explosion/large"
+ai:
+	target:
+		prefer:  {base: true}
+	escort:  {need: 5.0}

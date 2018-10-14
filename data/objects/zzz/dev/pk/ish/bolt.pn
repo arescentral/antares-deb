@@ -1,0 +1,24 @@
+template:          "tpl/bolt"
+long_name:         "PK Beam"
+short_name:        "PK BEAM"
+notes:             "PK Beam"
+max_velocity:      10.0
+initial_velocity:  15.0
+bolt:
+	color:  {r: 0, g: 255, b: 0}
+create:
+	action:
+		*	type:         "play"
+			reflexive:    true
+			sound:        "dev/pk/ish"
+			priority:     3
+			persistence:  "10t"
+			volume:       255
+collide:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/energy"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true

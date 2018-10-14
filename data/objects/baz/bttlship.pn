@@ -1,0 +1,36 @@
+template:           "tpl/capship"
+long_name:          "Battleship"
+short_name:         "BTTLSHIP"
+notes:              "Battleship"
+portrait:           "baz/bttlship"
+class:              "550"
+race:               "baz"
+health:             6500
+shield_color:       "white"
+energy:             6500
+price:              30.0
+build_time:         "50s"
+mass:               2.5
+max_velocity:       4.0
+thrust:             0.02
+warp_out_distance:  4659.3751
+weapons:
+	pulse:
+		base:  "dev/rplasma/gun"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/zbeam/turret"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "baz/bttlship"
+	frames:  {begin: 0, end: 36}
+destroy:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/giant"
+			relative_direction:  true
+ai:
+	escort:  {power: 4.5}

@@ -1,0 +1,41 @@
+template:    "tpl/anipulse"
+long_name:   "Antimatter Pulse"
+short_name:  "A PULSE"
+notes:       "Antimatter Pulse"
+animation:
+	sprite:  "dev/anti"
+	frames:  {begin: 0.0, end: 4.004}
+	speed:   0.03
+	first:   {begin: 0.0, end: 4.0}
+create:
+	action:
+		*	type:         "play"
+			reflexive:    true
+			sound:        "dev/anti"
+			priority:     3
+			persistence:  "10t"
+			volume:       255
+collide:
+	action:
+		*	type:  "group"
+			if:
+				owner:  "different"
+			of:
+				*	type:       "disable"
+					reflexive:  true
+					duration:
+						begin:  "-1.5s"
+						end:    "1.5s"
+				*	type:       "thrust"
+					reflexive:  true
+					relative:   true
+					value:      0.047
+				*	type:       "spin"
+					reflexive:  true
+					value:      {begin: -2.0, end: 2.0}
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/missile-hit"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true

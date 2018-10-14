@@ -1,0 +1,84 @@
+template:           "tpl/rotation"
+long_name:          "Obiard"
+short_name:         "OBIARD"
+notes:              "Needs rescuing, turning"
+tags:               {prisoner: true, normal-attacker: null}
+health:             1
+mass:               0.5
+turn_rate:          2.0
+max_velocity:       1.0
+thrust:             0.098
+initial_velocity:   {begin: 0.5, end: 2.0}
+initial_direction:  {begin: 0, end: 360}
+rotation:
+	sprite:  "obi/etc/obiard/turning"
+	scale:   0.5
+	frames:  {begin: 0, end: 24}
+icon:
+	shape:  "plus"
+	size:   1
+target:  {radar: true, order: true, lock: true}
+destroy:
+	action:
+		*	type:       "score"
+			reflexive:  true
+			counter:    {player: 0, which: 2}
+			value:      1
+		*	type:       "check"
+create:
+	action:
+		*	type:       "capture"
+			reflexive:  true
+			player:     -1
+collide:
+	as:    {subject: true, direct: true}
+	edge:  true
+	action:
+		*	type:  "group"
+			if:
+				tags:  {rescue: true}
+			of:
+				*	type:       "score"
+					counter:    {player: 0, which: 0}
+					value:      1
+				*	type:       "remove"
+					reflexive:  true
+		*	type:  "check"
+activate:
+	period:
+		begin:  "32t"
+		end:    "1s4t"
+	action:
+		*	type:       "disable"
+			reflexive:  true
+			duration:
+				begin:  "-1.5s"
+				end:    "1.5s"
+		*	type:       "spin"
+			reflexive:  true
+			value:      {begin: -1.0, end: 0.0}
+		*	type:       "delay"
+			duration:   "20t"
+		*	type:       "speed"
+			reflexive:  true
+			relative:   true
+			value:      0.5
+		*	type:       "delay"
+			duration:   "4.5s"
+		*	type:       "morph"
+			reflexive:  true
+			base:       "obi/etc/obiard/waving"
+			keep_ammo:  true
+		*	type:       "delay"
+			duration:   "4.5s"
+		*	type:       "morph"
+			reflexive:  true
+			base:       "obi/etc/obiard/turning"
+			keep_ammo:  true
+ai:
+	combat:
+		engages:
+			if:
+				tags:  {rescue: true}
+		skill:  {num: 3, den: 21}
+	escort:  {class: -256}

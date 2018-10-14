@@ -1,0 +1,17 @@
+template:    "tpl/device"
+long_name:   "Holo Generator"
+short_name:  "HLOGNRTR"
+notes:       "Holo Generator"
+device:
+	usage:      {defense: true}
+	fire_time:  "2s"
+	range:      900.0
+	speed:      21.0
+activate:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/holo/decoy"
+			count:               {begin: 1, end: 3}
+			relative_velocity:   true
+			relative_direction:  true

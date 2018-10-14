@@ -1,0 +1,8 @@
+frames:
+	*	{left: 8, top: 33, right: 48, bottom: 75, cx: 26, cy: 53}
+	*	{left: 57, top: 15, right: 97, bottom: 75, cx: 76, cy: 53}
+	*	{left: 103, top: 13, right: 147, bottom: 75, cx: 126, cy: 53}
+	*	{left: 150, top: 5, right: 198, bottom: 75, cx: 176, cy: 53}
+	*	{left: 206, top: 0, right: 250, bottom: 75, cx: 226, cy: 53}
+	*	{left: 255, top: 9, right: 295, bottom: 75, cx: 276, cy: 53}
+	*	{left: 306, top: 10, right: 350, bottom: 75, cx: 326, cy: 53}

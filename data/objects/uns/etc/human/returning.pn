@@ -1,0 +1,53 @@
+template:           "tpl/rotation"
+long_name:          "Human"
+short_name:         "HUMAN"
+notes:              "exiting to base"
+health:             1
+mass:               0.5
+turn_rate:          2.0
+max_velocity:       3.0
+thrust:             0.02
+initial_velocity:   {begin: 0.5, end: 2.0}
+initial_direction:  {begin: 0, end: 360}
+weapons:
+	beam:
+		base:  "dev/pk/ish/hand"
+rotation:
+	sprite:  "ish/evat"
+	scale:   0.5
+	frames:  {begin: 0, end: 24}
+icon:
+	shape:  "plus"
+	size:   2
+target:  {radar: true, order: true, lock: true}
+create:
+	action:
+		*	type:      "delay"
+			duration:  "0.05s"
+		*	type:      "target"
+			override:
+				direct:  {initial: 0}
+collide:  {edge: true}
+arrive:
+	distance:  70.714
+	action:
+		*	type:  "group"
+			if:
+				tags:  {rendezvous: true}
+			of:
+				*	type:         "play"
+					sound:        "tpl/evat/board"
+					priority:     3
+					persistence:  "10t"
+					volume:       255
+				*	type:         "score"
+					counter:      {player: 0, which: 1}
+					value:        1
+				*	type:         "remove"
+					reflexive:    true
+		*	type:  "check"
+ai:
+	combat:
+		engages:  true
+		skill:    {num: 3, den: 21}
+	escort:  {class: -256}

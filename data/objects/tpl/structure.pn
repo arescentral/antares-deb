@@ -1,0 +1,18 @@
+template:  "tpl/waypoint"
+tags:      {energizable: true}
+health:    1000
+icon:
+	shape:  "square"
+	size:   0
+target:  {radar: true}
+destroy:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/large"
+			relative_direction:  true
+collide:
+	as:  {subject: true, direct: true}
+ai:
+	combat:  {hated: true, engaged: true}
+	escort:  {class: -256}

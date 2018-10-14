@@ -1,0 +1,29 @@
+template:      "tpl/anipulse"
+long_name:     "Fireball"
+short_name:    "FIREBALL"
+notes:         "Fireball"
+mass:          0.098
+max_velocity:  12.0
+animation:
+	sprite:  "dev/fireball"
+expire:
+	after:
+		age:  "0.75s"
+collide:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/energy"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true
+activate:
+	period:  "1t"
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/fireball/trail"
+			relative_direction:  true
+ai:
+	combat:
+		skill:  {num: 3, den: 21}

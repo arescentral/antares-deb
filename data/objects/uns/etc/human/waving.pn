@@ -1,0 +1,43 @@
+template:           "tpl/hazard"
+long_name:          "Human"
+short_name:         "HUMAN"
+notes:              "Human needs rescuing (waving)"
+health:             1
+mass:               0.5
+turn_rate:          2.0
+thrust:             0.008
+initial_velocity:   {begin: 0.5, end: 2.0}
+initial_direction:  {begin: 0, end: 360}
+animation:
+	sprite:  "uns/etc/human/waving"
+	scale:   0.5
+	frames:  {begin: 0.0, end: 23.004}
+	speed:   0.47
+icon:
+	shape:  "plus"
+	size:   2
+target:  {lock: true}
+destroy:
+	action:
+		*	type:       "score"
+			reflexive:  true
+			counter:    {player: 0, which: 2}
+			value:      1
+		*	type:       "check"
+collide:
+	solid:  false
+	action:
+		*	type:  "group"
+			if:
+				tags:  {rescue: true}
+			of:
+				*	type:       "score"
+					counter:    {player: 0, which: 0}
+					value:      1
+				*	type:       "remove"
+					reflexive:  true
+		*	type:  "check"
+ai:
+	combat:
+		engages:  true
+		skill:    {num: 3, den: 21}

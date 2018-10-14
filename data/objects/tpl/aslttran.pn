@@ -1,0 +1,36 @@
+template:      "tpl/utilship"
+long_name:     "Assault Transport"
+short_name:    "ASLTTRAN"
+class:         "aslttran"
+health:        1200
+energy:        800
+price:         10.0
+build_time:    "11s"
+mass:          1.098
+max_velocity:  3.0
+thrust:        0.156
+icon:          {size: 5}
+destroy:
+	action:
+		*	type:       "create"
+			reflexive:  true
+			base:       "sfx/explosion/large"
+arrive:
+	distance:  565.686
+	action:
+		*	type:       "fire"
+			reflexive:  true
+			if:
+				tags:   {station: true}
+				owner:  "different"
+			which:  "special"
+ai:
+	target:
+		prefer:
+			owner:  "different"
+			tags:   {station: true}
+		force:
+			owner:  "different"
+			tags:   {station: true}
+	escort:  {class: 9, power: 0.2, need: 8.0}
+	build:   {ratio: 0.7}

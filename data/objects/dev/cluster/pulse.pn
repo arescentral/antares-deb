@@ -1,0 +1,18 @@
+template:           "tpl/anipulse"
+long_name:          "Cluster Cell"
+short_name:         "CLSTRCEL"
+notes:              "Cluster Cell"
+initial_velocity:   {begin: 6.0, end: 8.0}
+initial_direction:  {begin: -5, end: 5}
+autotarget:         true
+animation:
+	sprite:  "dev/cluster"
+collide:
+	damage:  25
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/missile-hit"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true

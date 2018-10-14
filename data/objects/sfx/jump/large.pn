@@ -1,0 +1,21 @@
+template:    "tpl/scenery"
+long_name:   "Jump Effect Large"
+short_name:  "JUMPGATE"
+notes:       "Jump Effect Large"
+health:      1000
+animation:
+	sprite:  "sfx/jump"
+	scale:   4.0
+	frames:  {begin: 0.0, end: 28.004}
+	speed:   0.06
+expire:
+	after:  {animation: true}
+create:
+	action:
+		*	type:         "play"
+			reflexive:    true
+			sound:        "sfx/jump"
+			priority:     4
+			persistence:  "20t"
+			volume:       255
+collide:  {damage: 1}

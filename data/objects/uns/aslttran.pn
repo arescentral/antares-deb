@@ -1,0 +1,32 @@
+template:      "tpl/aslttran"
+notes:         "Human Assault Transport"
+race:          "uns"
+shield_color:  {gold: 240}
+weapons:
+	pulse:
+		base:  "dev/cm/five"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/laser/turret"
+		positions:
+			*	{x: -8.0, y: 0.0}
+			*	{x: 8.0, y: 0.0}
+	special:
+		base:  "dev/assault/ish"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "uns/aslttran"
+	frames:  {begin: 0, end: 24}
+destroy:
+	action:
+		*	type:       "fire"
+			reflexive:  true
+			if:
+				tags:   {station: true}
+				owner:  "different"
+			which:      "special"
+		*	type:       "create"
+			reflexive:  true
+			base:       "sfx/explosion/large"

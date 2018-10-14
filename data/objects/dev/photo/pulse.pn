@@ -1,0 +1,23 @@
+template:           "tpl/anipulse"
+long_name:          "Photoreactor Puls"
+short_name:         "PHTOPULS"
+notes:              "Photoreactor Pulse"
+max_velocity:       15.0
+initial_direction:  {begin: -2, end: 2}
+animation:
+	sprite:  "dev/photo"
+	frames:  {begin: 0.0, end: 11.004}
+	speed:   0.14
+	first:   {begin: 0.0, end: 11.0}
+expire:
+	after:
+		age:  "1s"
+collide:
+	damage:  200
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/missile-hit"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true

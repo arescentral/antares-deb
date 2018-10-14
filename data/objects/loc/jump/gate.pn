@@ -1,0 +1,21 @@
+template:    "tpl/waypoint"
+long_name:   "Jump Gate"
+short_name:  "JUMPGATE"
+notes:       "Jump Gate"
+tags:        {jumpgate: true, normal: null}
+health:      1000
+target:      {base: true}
+destroy:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/large"
+			relative_direction:  true
+		*	type:                "score"
+			reflexive:           true
+			counter:             {player: 0, which: 0}
+			value:               1
+		*	type:                "check"
+ai:
+	escort:  {class: -256}
+	build:   {legacy_non_builder: true}

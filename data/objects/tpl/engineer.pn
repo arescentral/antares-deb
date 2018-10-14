@@ -1,0 +1,89 @@
+template:      "tpl/utilship"
+long_name:     "Engineer Pod"
+short_name:    "ENGINEER"
+tags:          {engineer: true, normal: null}
+class:         "engineer"
+health:        800
+energy:        200
+price:         4.0
+build_time:    "11s"
+mass:          1.098
+max_velocity:  3.0
+thrust:        0.156
+destroy:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/large"
+			relative_direction:  true
+expire:
+	action:
+		*	type:                "play"
+			reflexive:           true
+			sound:               "sfx/explosion/small"
+			priority:            5
+			persistence:         "1s"
+			volume:              255
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/debris/a"
+			count:               {begin: 1, end: 3}
+			relative_direction:  true
+			distance:            32
+			within:              "square"
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/debris/b"
+			count:               {begin: 1, end: 3}
+			relative_direction:  true
+			distance:            32
+			within:              "square"
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/energy"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true
+arrive:
+	distance:  70.714
+	action:
+		*	type:  "group"
+			if:
+				tags:   {flak: true}
+				owner:  "different"
+			of:
+				*	type:         "stop"
+					reflexive:    true
+				*	type:         "cap-speed"
+					reflexive:    true
+					value:        0.0
+				*	type:         "play"
+					reflexive:    true
+					sound:        "tpl/engineer/arrive"
+					priority:     3
+					persistence:  "10t"
+					volume:       255
+		*	type:      "delay"
+			duration:  "2s40t"
+		*	type:      "group"
+			if:
+				tags:   {flak: true}
+				owner:  "different"
+			of:
+				*	type:       "remove"
+					reflexive:  true
+				*	type:       "capture"
+		*	type:       "cap-speed"
+			reflexive:  true
+ai:
+	combat:  {engages: false, evaded: false}
+	target:
+		prefer:
+			owner:  "different"
+			tags:   {flak: true}
+		force:
+			base:   false
+			owner:  "different"
+			tags:   {flak: true}
+	escort:  {class: 9, power: 0.2, need: 2.0}
+	build:   {ratio: 0.7}

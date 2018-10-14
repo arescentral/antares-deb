@@ -1,0 +1,23 @@
+template:      "tpl/cruiser"
+notes:         "Cruiser"
+portrait:      "sal/cruiser"
+race:          "sal"
+health:        1500
+shield_color:  {gold: 240}
+weapons:
+	pulse:
+		base:  "dev/anti1/gun"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/pk/sal/gun"
+		positions:
+			*	{x: -5.0, y: 0.0}
+			*	{x: 5.0, y: 0.0}
+	special:
+		base:  "dev/stealth/item"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "sal/cruiser"
+	frames:  {begin: 0, end: 24}

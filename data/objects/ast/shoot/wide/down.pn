@@ -1,0 +1,19 @@
+template:           "tpl/scenery"
+long_name:          "AsteroidShootDown"
+short_name:         "ASTSHTDN"
+notes:              "Asteroid Shoot Down, Random Direction"
+health:             1000
+initial_direction:  180
+activate:
+	period:
+		begin:  "4.25s"
+		end:    "8.5s"
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "ast/rand-dir"
+			count:               {begin: 1, end: 3}
+			relative_velocity:   true
+			relative_direction:  true
+			distance:            4096
+			within:              "square"

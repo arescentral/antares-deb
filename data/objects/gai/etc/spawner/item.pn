@@ -1,0 +1,24 @@
+template:    "tpl/device"
+long_name:   "Enemy Object Wpn"
+short_name:  "ENOBJWPN"
+notes:       "Gaitor"
+device:
+	usage:      {attacking: true, defense: true}
+	direction:  "omni"
+	ammo:       10
+	speed:      7.3
+activate:
+	action:
+		*	type:               "create"
+			reflexive:          true
+			base:               "gai/cruiser"
+			count:              {begin: 1, end: 3}
+			relative_velocity:  true
+			distance:           256
+			within:             "square"
+		*	type:               "create"
+			reflexive:          true
+			base:               "gai/fighter"
+			count:              {begin: 1, end: 5}
+			distance:           256
+			within:             "square"

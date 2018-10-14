@@ -1,0 +1,26 @@
+template:    "tpl/scenery"
+long_name:   "Asteroid Shoot Up"
+short_name:  "ASTRSHOT"
+notes:       "Asteroid Shoot Up"
+health:      1000
+activate:
+	period:
+		begin:  "4.25s"
+		end:    "8.5s"
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "ast/regular/big"
+			count:               {begin: 1, end: 3}
+			relative_velocity:   true
+			relative_direction:  true
+			distance:            1024
+			within:              "square"
+		*	type:                "create"
+			reflexive:           true
+			base:                "ast/nasty"
+			count:               {begin: -4, end: 2}
+			relative_velocity:   true
+			relative_direction:  true
+			distance:            1024
+			within:              "square"

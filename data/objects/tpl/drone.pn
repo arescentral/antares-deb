@@ -1,0 +1,28 @@
+template:           "tpl/animation"
+long_name:          "Drone"
+short_name:         "DRONE"
+tags:               {energizable: true}
+health:             250
+energy:             600
+price:              3.0
+build_time:         "3s"
+mass:               0.797
+turn_rate:          2.0
+max_velocity:       3.0
+thrust:             0.297
+initial_direction:  {begin: 0, end: 360}
+target:             {radar: true, order: true, select: true}
+destroy:            {release_energy: true}
+collide:
+	as:     {subject: true, direct: true}
+	solid:  true
+	edge:   true
+ai:
+	combat:
+		hated:    true
+		engages:  true
+		engaged:  true
+		evades:   true
+		evaded:   true
+		skill:    {num: 3, den: 21}
+	escort:  {class: 1, power: 0.5}

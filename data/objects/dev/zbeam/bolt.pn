@@ -1,0 +1,23 @@
+template:    "tpl/bolt"
+long_name:   "Z Beam"
+short_name:  "Z BEAM"
+notes:       "Z Beam"
+autotarget:  true
+bolt:
+	color:  {r: 255, g: 127, b: 255}
+create:
+	action:
+		*	type:         "play"
+			reflexive:    true
+			sound:        "dev/repulser"
+			priority:     3
+			persistence:  "10t"
+			volume:       255
+collide:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/energy"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true

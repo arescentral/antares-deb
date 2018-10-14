@@ -1,0 +1,6 @@
+template:          "ast/regular/small"
+short_name:        "ASTRDBRS"
+max_velocity:      4.0
+initial_velocity:  {begin: 4.0, end: 5.0}
+icon:              {size: 2}
+collide:           {edge: true}

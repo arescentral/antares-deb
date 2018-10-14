@@ -1,0 +1,24 @@
+template:    "tpl/bolt"
+long_name:   "Concussive Pellet"
+short_name:  "CCPELLET"
+notes:       "Invisible Bullet"
+bolt:
+	color:  "clear"
+collide:
+	action:
+		*	type:       "play"
+			reflexive:  true
+			any:
+				*	sound:  "dev/conc/ricochet/1"
+				*	sound:  "dev/conc/ricochet/2"
+			priority:     3
+			persistence:  "0.25s"
+			volume:       255
+		*	type:         "spark"
+			reflexive:    true
+			count:        2
+			hue:          "yellow"
+			velocity:     3.0
+			age:          "0.85s"
+		*	type:         "remove"
+			reflexive:    true

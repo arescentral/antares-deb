@@ -1,0 +1,22 @@
+template:    "tpl/gun"
+long_name:   "Newo Beam Cannon"
+short_name:  "NEWOBEAM"
+notes:       "Newo Beam Cannon"
+device:
+	energy_cost:  10
+	fire_time:    "20t"
+	range:        600.0
+	speed:        21.0
+activate:
+	action:
+		*	type:                "play"
+			reflexive:           true
+			sound:               "dev/newo"
+			priority:            3
+			persistence:         "10t"
+			volume:              255
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/newo/bolt"
+			relative_velocity:   true
+			relative_direction:  true

@@ -1,0 +1,24 @@
+template:           "tpl/hvd"
+notes:              "Heavy Destroyer"
+race:               "aud"
+shield_color:       {indigo: 240}
+warp_speed:         50.0
+warp_out_distance:  6621.0939
+weapons:
+	pulse:
+		base:  "dev/cform/gun"
+		positions:
+			*	{x: 0.0, y: 0.0}
+	beam:
+		base:  "dev/asb/gun"
+		positions:
+			*	{x: -5.0, y: 0.0}
+			*	{x: 0.0, y: 0.0}
+			*	{x: 5.0, y: 0.0}
+	special:
+		base:  "dev/amissile/launcher"
+		positions:
+			*	{x: 0.0, y: 0.0}
+rotation:
+	sprite:  "aud/hvd"
+	frames:  {begin: 0, end: 24}

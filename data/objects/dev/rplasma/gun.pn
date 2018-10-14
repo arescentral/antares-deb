@@ -1,0 +1,17 @@
+template:    "tpl/gun"
+long_name:   "R-Plasma Launcher"
+short_name:  "RPLASMA"
+notes:       "R-Plasma Launcher"
+device:
+	fire_time:     "26t"
+	ammo:          150
+	range:         1440.0
+	speed:         9.0
+	restock_cost:  18
+activate:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/rplasma/pulse"
+			relative_velocity:   true
+			relative_direction:  true

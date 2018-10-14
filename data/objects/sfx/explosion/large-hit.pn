@@ -1,0 +1,27 @@
+template:    "tpl/effect"
+long_name:   "Large Hit Explosion"
+short_name:  "EXPLSN"
+notes:       "Large Hit Explosion"
+health:      1000
+animation:
+	sprite:  "sfx/explosion/large-hit"
+	scale:   0.75
+	frames:  {begin: 0.0, end: 11.004}
+	speed:   0.234
+expire:
+	after:  {animation: true}
+create:
+	action:
+		*	type:         "play"
+			reflexive:    true
+			sound:        "sfx/explosion/small"
+			priority:     3
+			persistence:  "20t"
+			volume:       255
+		*	type:         "spark"
+			reflexive:    true
+			count:        10
+			hue:          "orange"
+			velocity:     2.0
+			age:          "0.85s"
+collide:  {damage: 100}

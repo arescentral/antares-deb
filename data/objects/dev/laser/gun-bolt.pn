@@ -1,0 +1,15 @@
+template:    "tpl/bolt"
+long_name:   "Laser"
+short_name:  "LASER"
+notes:       "Laser"
+bolt:
+	color:  {r: 0, g: 127, b: 255}
+collide:
+	damage:  15
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/energy"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true

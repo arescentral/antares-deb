@@ -1,0 +1,14 @@
+template:    "tpl/rotation"
+long_name:   "Gunsmoke"
+short_name:  "GUNSMOKE"
+notes:       "Gunsmoke"
+health:      1000
+rotation:
+	sprite:  "sfx/gunsmoke"
+	layer:   3
+	frames:  {begin: 0, end: 24}
+expire:
+	after:
+		age:  "4t"
+ai:
+	escort:  {class: -256}

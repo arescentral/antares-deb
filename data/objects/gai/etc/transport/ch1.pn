@@ -1,0 +1,22 @@
+template:  "gai/transport"
+class:     "801"
+target:    {hide: true}
+destroy:
+	action:
+		*	type:       "create"
+			reflexive:  true
+			base:       "sfx/explosion/large"
+		*	type:       "score"
+			reflexive:  true
+			counter:    {player: 0, which: 0}
+			value:      1
+		*	type:       "check"
+expire:  {action: null}
+arrive:
+	action:
+		*	type:    "win"
+			player:  1
+			text:
+				>	You allowed the transports to dock at Charon station. You need to
+				>	destroy the transports more quickly.
+portrait:  null

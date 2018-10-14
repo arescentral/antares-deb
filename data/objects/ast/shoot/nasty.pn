@@ -1,0 +1,18 @@
+template:    "tpl/scenery"
+long_name:   "Nastiroid Shooter"
+short_name:  "NSTSHOOT"
+notes:       "Nastiroid Shooter"
+health:      1000
+activate:
+	period:
+		begin:  "4.25s"
+		end:    "8.5s"
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "ast/nasty"
+			relative_velocity:   true
+			relative_direction:  true
+			distance:            1024
+			within:              "square"
+			legacy_random:       true

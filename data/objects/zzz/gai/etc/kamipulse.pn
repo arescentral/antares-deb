@@ -1,0 +1,23 @@
+template:           "tpl/anipulse"
+long_name:          "Clustercell 2"
+short_name:         "CLSTR2"
+notes:              "Clustercell 2"
+initial_velocity:   {begin: 6.0, end: 8.0}
+initial_direction:  {begin: 0, end: 360}
+autotarget:         true
+animation:
+	sprite:  "dev/cluster"
+expire:
+	after:
+		age:
+			begin:  "3s20t"
+			end:    "5s"
+collide:
+	damage:  25
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/missile-hit"
+			relative_direction:  true
+		*	type:                "remove"
+			reflexive:           true

@@ -1,0 +1,36 @@
+template:           "tpl/anipulse"
+long_name:          "Flak Shell"
+short_name:         "FLAKSHL"
+notes:              "Flak Shell"
+max_velocity:       15.0
+initial_velocity:   {begin: 15.0, end: 20.0}
+initial_direction:  {begin: -15, end: 15}
+autotarget:         true
+animation:
+	sprite:  "dev/cluster"
+	scale:   0.5
+expire:
+	after:
+		age:
+			begin:  "0.25s"
+			end:    "0.75s"
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/flak/flak"
+			count:               {begin: 8, end: 12}
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/flak"
+			relative_direction:  true
+collide:
+	damage:  25
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/flak/flak"
+			count:               {begin: 8, end: 12}
+		*	type:                "create"
+			reflexive:           true
+			base:                "sfx/explosion/flak"
+			relative_direction:  true

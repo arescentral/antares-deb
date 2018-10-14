@@ -1,0 +1,15 @@
+template:    "tpl/turret"
+long_name:   "Z Beam Cannon"
+short_name:  "Z BEAM"
+notes:       "Z Beam Cannon"
+device:
+	fire_time:  "17t"
+	range:      520.0
+	speed:      13.5
+activate:
+	action:
+		*	type:                "create"
+			reflexive:           true
+			base:                "dev/zbeam/bolt"
+			relative_velocity:   true
+			relative_direction:  true
