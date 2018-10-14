@@ -1,0 +1,24 @@
+antares (0.9.0-1~16.04) xenial; urgency=medium
+
+  * New plugin format.
+
+ -- Chris Pickel <sfiera@twotaled.com>  Sun, 14 Oct 2018 22:48:29 +0200
+
+antares (0.8.3-1) xenial; urgency=medium
+
+  * Don’t crash when scroll text lacks background (fixes antares#200).
+
+ -- Chris Pickel <sfiera@twotaled.com>  Wed, 13 Feb 2018 20:00:00 +0100
+
+antares (0.8.2-1) xenial; urgency=medium
+
+  * Keep scenarios in $PREFIX/share (fixes antares#184).
+  * Preserve preferences between runs (fixes antares#185).
+
+ -- Chris Pickel <sfiera@twotaled.com>  Wed, 08 Nov 2017 22:39:56 +0100
+
+antares (0.8.2~rc1-1) xenial; urgency=low
+
+  * Initial release (closes antares#173)
+
+ -- Chris Pickel <sfiera@twotaled.com>  Sun, 15 Jan 2017 13:37:43 +0100
